@@ -1,7 +1,8 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
 
-// https://vite.dev/config/
+// ⚠️ thay <repo-name> bằng tên repo của bạn
 export default defineConfig({
-  plugins: [react()],
-})
+    plugins: [react()],
+    base: "test_japanese",
+});
