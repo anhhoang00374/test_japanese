@@ -1,0 +1,487 @@
+import React, { useState, useEffect } from 'react';
+import { Star, Trophy, Clock, CheckCircle, XCircle, Play, Eye, RotateCcw, ChevronRight, ChevronLeft } from 'lucide-react';
+
+const TEST_DATA = {
+    multipleChoice: [
+        { question: "Chọn từ đúng cho Con mèo:", options: ["ねこ", "いぬ", "とり", "さかな"], correct: 0, explanation: "ねこ (neko) nghĩa là con mèo" },
+        { question: "Chọn nghĩa đúng của おはよう:", options: ["Chào buổi tối", "Chào buổi sáng", "Tạm biệt", "Cảm ơn"], correct: 1, explanation: "おはよう (ohayou) nghĩa là chào buổi sáng" }
+    ],
+    matching: [{ left: ["水", "火", "木"], right: ["Lửa", "Cây", "Nước"], correctPairs: [[0, 2], [1, 0], [2, 1]], explanation: "水=Nước, 火=Lửa, 木=Cây" }],
+    fillBlank: [
+        { sentence: "わたし___ ___です", blanks: ["は", "がくせい"], options: [["は", "を", "が", "に"], ["せんせい", "がくせい", "いしゃ", "かいしゃいん"]], explanation: "わたしは がくせいです = Tôi là học sinh" },
+        { sentence: "これ___ ___です", blanks: ["は", "ほん"], options: [["は", "を", "が", "の"], ["ほん", "ペン", "ノート", "つくえ"]], explanation: "これは ほんです = Đây là sách" }
+    ],
+    wordConnect: [
+        { word: "りんご", options: ["🍎", "🍌", "🍇", "🍊"], correct: 0, explanation: "りんご (ringo) = táo" },
+        { word: "いぬ", options: ["🐱", "🐶", "🐰", "🐭"], correct: 1, explanation: "いぬ (inu) = con chó" }
+    ],
+    sentenceOrder: [
+        { words: ["です", "がくせい", "は", "わたし"], correct: [3, 2, 1, 0], correctSentence: "わたし は がくせい です", explanation: "わたし は がくせい です (Tôi là học sinh)" }
+    ],
+    typing: [
+        { question: "Quả đào", placeholder: "Nhập từ vựng", correct: "もも", hint: "も + も", explanation: "もも (momo) = quả đào" },
+        { question: "Con mèo", placeholder: "Nhập từ vựng", correct: "ねこ", hint: "ね + こ", explanation: "ねこ (neko) = con mèo" }
+    ]
+};
+
+const sections = [
+    { name: 'Chọn đáp án', data: TEST_DATA.multipleChoice, type: 'multiple' },
+    { name: 'Ghép từ', data: TEST_DATA.matching, type: 'matching' },
+    { name: 'Điền từ', data: TEST_DATA.fillBlank, type: 'fill' },
+    { name: 'Nối từ', data: TEST_DATA.wordConnect, type: 'connect' },
+    { name: 'Sắp xếp câu', data: TEST_DATA.sentenceOrder, type: 'order' },
+    { name: 'Nhập từ', data: TEST_DATA.typing, type: 'typing' }
+];
+
+export default function JapaneseTestApp() {
+    const [studentName, setStudentName] = useState('');
+    const [hasStarted, setHasStarted] = useState(false);
+    const [startTime, setStartTime] = useState(null);
+    const [elapsedTime, setElapsedTime] = useState(0);
+    const [isFinished, setIsFinished] = useState(false);
+    const [showAnswers, setShowAnswers] = useState(false);
+    const [sectionStates, setSectionStates] = useState(sections.map(() => ({
+        currentQuestion: 0,
+        answers: {},
+        selectedOption: null,
+        matchedPairs: [],
+        selectedLeft: null,
+        fillBlankAnswers: [],
+        sentenceOrder: [],
+        typingAnswer: ''
+    })));
+
+    useEffect(() => {
+        if (hasStarted && !isFinished) {
+            const timer = setInterval(() => setElapsedTime(Date.now() - startTime), 1000);
+            return () => clearInterval(timer);
+        }
+    }, [hasStarted, isFinished, startTime]);
+
+    const updateSectionState = (sIdx, updates) => {
+        setSectionStates(prev => {
+            const n = [...prev];
+            n[sIdx] = { ...n[sIdx], ...updates };
+            return n;
+        });
+    };
+
+    const saveCurrentAnswer = (sIdx) => {
+        const section = sections[sIdx];
+        const state = sectionStates[sIdx];
+        const currentQ = state.currentQuestion;
+        const answers = { ...state.answers };
+
+        if (section.type === 'multiple' || section.type === 'connect') {
+            if (state.selectedOption !== null) answers[currentQ] = state.selectedOption;
+        } else if (section.type === 'matching') {
+            if (state.matchedPairs.length > 0) answers[currentQ] = state.matchedPairs;
+        } else if (section.type === 'fill') {
+            if (state.fillBlankAnswers.length > 0) answers[currentQ] = state.fillBlankAnswers;
+        } else if (section.type === 'order') {
+            if (state.sentenceOrder.length > 0) answers[currentQ] = state.sentenceOrder;
+        } else if (section.type === 'typing') {
+            if (state.typingAnswer.trim()) answers[currentQ] = state.typingAnswer.trim();
+        }
+
+        updateSectionState(sIdx, { answers });
+    };
+
+    const goToQuestion = (sIdx, qIdx) => {
+        saveCurrentAnswer(sIdx);
+
+        const state = sectionStates[sIdx];
+        const section = sections[sIdx];
+        const existingAnswer = state.answers[qIdx];
+
+        const newState = { currentQuestion: qIdx };
+
+        if (existingAnswer !== undefined) {
+            if (section.type === 'multiple' || section.type === 'connect') {
+                newState.selectedOption = existingAnswer;
+            } else if (section.type === 'matching') {
+                newState.matchedPairs = existingAnswer;
+            } else if (section.type === 'fill') {
+                newState.fillBlankAnswers = existingAnswer;
+            } else if (section.type === 'order') {
+                newState.sentenceOrder = existingAnswer;
+            } else if (section.type === 'typing') {
+                newState.typingAnswer = existingAnswer;
+            }
+        } else {
+            newState.selectedOption = null;
+            newState.matchedPairs = [];
+            newState.selectedLeft = null;
+            newState.fillBlankAnswers = [];
+            newState.sentenceOrder = [];
+            newState.typingAnswer = '';
+        }
+
+        updateSectionState(sIdx, newState);
+    };
+
+    const isAllCompleted = () => {
+        return sections.every((sec, sIdx) => {
+            const state = sectionStates[sIdx];
+            return sec.data.every((q, qIdx) => state.answers[qIdx] !== undefined);
+        });
+    };
+
+    const getSectionProgress = (sIdx) => {
+        const state = sectionStates[sIdx];
+        const completed = sections[sIdx].data.filter((q, qIdx) => state.answers[qIdx] !== undefined).length;
+        return { completed, total: sections[sIdx].data.length };
+    };
+
+    const formatTime = (ms) => {
+        const s = Math.floor(ms / 1000);
+        const m = Math.floor(s / 60);
+        return m + ':' + (s % 60).toString().padStart(2, '0');
+    };
+
+    const renderQuestionContent = (sIdx) => {
+        const section = sections[sIdx];
+        const state = sectionStates[sIdx];
+        const q = section.data[state.currentQuestion];
+
+        if (section.type === 'multiple') {
+            return (
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-gray-800">{q.question}</h3>
+                    <div className="grid gap-3">
+                        {q.options.map((opt, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => updateSectionState(sIdx, { selectedOption: idx })}
+                                className={'p-4 rounded-xl text-lg font-medium transition-all ' + (state.selectedOption === idx ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg' : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200')}
+                            >
+                                {opt}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        if (section.type === 'matching') {
+            return (
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-gray-800">Ghép các cặp từ đúng:</h3>
+                    <div className="grid grid-cols-2 gap-6">
+                        <div className="space-y-3">
+                            <p className="text-sm font-semibold text-gray-600">Cột A</p>
+                            {q.left.map((item, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => updateSectionState(sIdx, { selectedLeft: idx })}
+                                    className={'w-full p-4 rounded-xl text-xl font-bold transition-all ' + (state.selectedLeft === idx ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white' : state.matchedPairs.some(p => p[0] === idx) ? 'bg-green-100 text-green-700 border-2 border-green-400' : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200')}
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
+                        <div className="space-y-3">
+                            <p className="text-sm font-semibold text-gray-600">Cột B</p>
+                            {q.right.map((item, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => {
+                                        if (state.selectedLeft !== null) {
+                                            const newPairs = state.matchedPairs.filter(p => p[0] !== state.selectedLeft && p[1] !== idx);
+                                            updateSectionState(sIdx, { matchedPairs: [...newPairs, [state.selectedLeft, idx]], selectedLeft: null });
+                                        }
+                                    }}
+                                    className={'w-full p-4 rounded-xl text-xl font-medium transition-all ' + (state.matchedPairs.some(p => p[1] === idx) ? 'bg-green-100 text-green-700 border-2 border-green-400' : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200')}
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        if (section.type === 'fill') {
+            return (
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-gray-800">Điền từ vào chỗ trống:</h3>
+                    <div className="bg-white p-6 rounded-xl border-2 border-gray-200">
+                        <p className="text-3xl font-bold text-center">
+                            {q.sentence.split('___').map((part, idx) => (
+                                <React.Fragment key={idx}>
+                                    {part}
+                                    {idx < q.blanks.length && (
+                                        <span className="inline-block mx-2 px-4 py-2 bg-yellow-100 border-2 border-yellow-400 rounded-lg min-w-[100px] text-center">
+                      {state.fillBlankAnswers[idx] || '___'}
+                    </span>
+                                    )}
+                                </React.Fragment>
+                            ))}
+                        </p>
+                    </div>
+                    {q.options.map((opts, blankIdx) => (
+                        <div key={blankIdx} className="space-y-2">
+                            <p className="text-sm font-semibold text-gray-600">Chỗ trống {blankIdx + 1}:</p>
+                            <div className="grid grid-cols-4 gap-2">
+                                {opts.map((opt, optIdx) => (
+                                    <button
+                                        key={optIdx}
+                                        onClick={() => {
+                                            const newAnswers = [...state.fillBlankAnswers];
+                                            newAnswers[blankIdx] = opt;
+                                            updateSectionState(sIdx, { fillBlankAnswers: newAnswers });
+                                        }}
+                                        className={'p-3 rounded-lg text-lg font-medium transition-all ' + (state.fillBlankAnswers[blankIdx] === opt ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200')}
+                                    >
+                                        {opt}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+
+        if (section.type === 'connect') {
+            return (
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-gray-800">Chọn biểu tượng đúng:</h3>
+                    <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
+                        <p className="text-5xl font-bold">{q.word}</p>
+                    </div>
+                    <div className="grid grid-cols-4 gap-4">
+                        {q.options.map((opt, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => updateSectionState(sIdx, { selectedOption: idx })}
+                                className={'p-8 rounded-xl text-6xl transition-all ' + (state.selectedOption === idx ? 'bg-gradient-to-r from-green-400 to-blue-400 shadow-lg' : 'bg-white hover:bg-gray-50 border-2 border-gray-200')}
+                            >
+                                {opt}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        if (section.type === 'order') {
+            const availableWords = q.words.filter((w, idx) => !state.sentenceOrder.includes(idx));
+            return (
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-gray-800">Sắp xếp thành câu đúng:</h3>
+                    <div className="bg-white p-6 rounded-xl border-2 border-gray-200 min-h-[100px]">
+                        <div className="flex flex-wrap gap-2 justify-center">
+                            {state.sentenceOrder.map((idx, pos) => (
+                                <button
+                                    key={pos}
+                                    onClick={() => updateSectionState(sIdx, { sentenceOrder: state.sentenceOrder.filter((x, i) => i !== pos) })}
+                                    className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-xl font-bold hover:opacity-80"
+                                >
+                                    {q.words[idx]}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-4 gap-3">
+                        {availableWords.map((word, i) => {
+                            const originalIdx = q.words.findIndex((w, j) => w === word && !state.sentenceOrder.includes(j));
+                            return (
+                                <button
+                                    key={i}
+                                    onClick={() => updateSectionState(sIdx, { sentenceOrder: [...state.sentenceOrder, originalIdx] })}
+                                    className="p-4 bg-white hover:bg-gray-50 border-2 border-gray-200 rounded-lg text-xl font-medium"
+                                >
+                                    {word}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+            );
+        }
+
+        if (section.type === 'typing') {
+            return (
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-gray-800">Nhập từ vựng:</h3>
+                    <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
+                        <p className="text-3xl font-bold mb-2">{q.question}</p>
+                        <p className="text-sm text-gray-600 italic">Gợi ý: {q.hint}</p>
+                    </div>
+                    <input
+                        type="text"
+                        value={state.typingAnswer}
+                        onChange={(e) => updateSectionState(sIdx, { typingAnswer: e.target.value })}
+                        placeholder={q.placeholder}
+                        className="w-full px-6 py-4 text-2xl text-center border-4 border-purple-300 rounded-xl focus:border-purple-500 focus:outline-none font-bold"
+                    />
+                </div>
+            );
+        }
+    };
+
+    if (!hasStarted) {
+        return (
+            <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 flex items-center justify-center p-4">
+                <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full">
+                    <div className="text-center mb-8">
+                        <div className="text-6xl mb-4">🎌</div>
+                        <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">Bài Test Tiếng Nhật</h1>
+                    </div>
+                    <div className="space-y-4">
+                        <input
+                            type="text"
+                            placeholder="Nhập tên của bạn..."
+                            value={studentName}
+                            onChange={(e) => setStudentName(e.target.value)}
+                            onKeyPress={(e) => e.key === 'Enter' && studentName.trim() && setHasStarted(true) && setStartTime(Date.now())}
+                            className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:border-purple-500 focus:outline-none"
+                        />
+                        <button
+                            onClick={() => { if (studentName.trim()) { setHasStarted(true); setStartTime(Date.now()); } }}
+                            disabled={!studentName.trim()}
+                            className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
+                        >
+                            <Play className="w-6 h-6" />Bắt đầu làm bài!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    if (isFinished) {
+        return (
+            <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 p-4">
+                <div className="max-w-4xl mx-auto">
+                    <div className="bg-white rounded-3xl shadow-2xl p-8 text-center">
+                        <div className="inline-block bg-gradient-to-r from-purple-100 to-pink-100 px-6 py-3 rounded-full mb-4">
+                            <p className="text-sm text-gray-600">Học sinh</p>
+                            <p className="text-2xl font-bold text-purple-700">{studentName}</p>
+                        </div>
+                        <Trophy className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
+                        <h2 className="text-4xl font-bold mb-4">Hoàn thành!</h2>
+                        <p className="text-xl mb-6">Thời gian: {formatTime(elapsedTime)}</p>
+                        <button
+                            onClick={() => {
+                                setHasStarted(false);
+                                setIsFinished(false);
+                                setSectionStates(sections.map(() => ({ currentQuestion: 0, answers: {}, selectedOption: null, matchedPairs: [], selectedLeft: null, fillBlankAnswers: [], sentenceOrder: [], typingAnswer: '' })));
+                                setStartTime(null);
+                                setElapsedTime(0);
+                                setStudentName('');
+                            }}
+                            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg flex items-center gap-2 mx-auto"
+                        >
+                            <RotateCcw className="w-5 h-5" />Làm bài mới
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    const allCompleted = isAllCompleted();
+
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 p-4">
+            <div className="max-w-4xl mx-auto sticky top-4 z-10 mb-6">
+                <div className="bg-white rounded-xl shadow-lg p-4">
+                    <div className="flex justify-between items-center">
+                        <div className="flex items-center gap-3">
+                            <div className="text-2xl">👤</div>
+                            <div>
+                                <p className="text-sm text-gray-600">Học sinh</p>
+                                <p className="font-bold text-lg text-gray-800">{studentName}</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2 bg-gradient-to-r from-purple-100 to-pink-100 px-4 py-2 rounded-xl">
+                            <Clock className="w-5 h-5 text-purple-600" />
+                            <span className="font-bold text-lg text-purple-700">{formatTime(elapsedTime)}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="max-w-4xl mx-auto space-y-6">
+                {sections.map((sec, sIdx) => {
+                    const state = sectionStates[sIdx];
+                    const progress = getSectionProgress(sIdx);
+                    const isCompleted = progress.completed === progress.total;
+
+                    return (
+                        <div key={sIdx} className="bg-white rounded-xl shadow-xl p-6">
+                            <div className="flex justify-between items-center mb-4">
+                                <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                                    Bài {sIdx + 1}: {sec.name}
+                                </h2>
+                                <div className="flex items-center gap-2">
+                                    {isCompleted && (
+                                        <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+                      <CheckCircle className="w-4 h-4" />Hoàn thành
+                    </span>
+                                    )}
+                                    <span className="text-sm font-medium text-gray-600">{progress.completed} / {progress.total}</span>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-2 mb-4 flex-wrap">
+                                {sec.data.map((item, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => goToQuestion(sIdx, idx)}
+                                        className={'px-3 py-1 rounded-lg text-sm font-medium transition-all ' + (state.currentQuestion === idx ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' : state.answers[idx] !== undefined ? 'bg-green-100 text-green-700 border border-green-300' : 'bg-gray-100 text-gray-600 border border-gray-300')}
+                                    >
+                                        {idx + 1}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {renderQuestionContent(sIdx)}
+
+                            <div className="flex justify-between mt-6">
+                                <button
+                                    onClick={() => goToQuestion(sIdx, Math.max(0, state.currentQuestion - 1))}
+                                    disabled={state.currentQuestion === 0}
+                                    className="bg-gray-200 text-gray-700 px-4 py-2 rounded-xl font-bold hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                >
+                                    <ChevronLeft className="w-5 h-5" />Câu trước
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        saveCurrentAnswer(sIdx);
+                                        if (state.currentQuestion < sec.data.length - 1) {
+                                            goToQuestion(sIdx, state.currentQuestion + 1);
+                                        }
+                                    }}
+                                    disabled={state.currentQuestion === sec.data.length - 1}
+                                    className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-xl font-bold hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                >
+                                    Câu tiếp theo<ChevronRight className="w-5 h-5" />
+                                </button>
+                            </div>
+                        </div>
+                    );
+                })}
+
+                <div className="bg-white rounded-xl shadow-xl p-6 text-center">
+                    {!allCompleted && (
+                        <p className="text-red-600 font-semibold mb-4">⚠️ Vui lòng hoàn thành tất cả câu hỏi trước khi nộp bài!</p>
+                    )}
+                    <button
+                        onClick={() => {
+                            sections.forEach((sec, sIdx) => saveCurrentAnswer(sIdx));
+                            setIsFinished(true);
+                        }}
+                        disabled={!allCompleted}
+                        className="bg-gradient-to-r from-green-500 to-teal-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 mx-auto"
+                    >
+                        <Trophy className="w-6 h-6" />Nộp bài
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
