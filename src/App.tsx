@@ -66,6 +66,18 @@ export default function JapaneseTestApp() {
         });
     };
 
+    const saveAnswerImmediately = (sIdx, answer) => {
+        setSectionStates(prev => {
+            const n = [...prev];
+            const currentQ = n[sIdx].currentQuestion;
+            n[sIdx] = {
+                ...n[sIdx],
+                answers: { ...n[sIdx].answers, [currentQ]: answer }
+            };
+            return n;
+        });
+    };
+
     const saveCurrentAnswer = (sIdx) => {
         const section = sections[sIdx];
         const state = sectionStates[sIdx];
@@ -133,10 +145,116 @@ export default function JapaneseTestApp() {
         return { completed, total: sections[sIdx].data.length };
     };
 
+    const calculateScore = () => {
+        let correct = 0, total = 0;
+        sections.forEach((section, sIdx) => {
+            const state = sectionStates[sIdx];
+            section.data.forEach((question, qIdx) => {
+                total++;
+                const answer = state.answers[qIdx];
+                if (section.type === 'multiple' || section.type === 'connect') {
+                    if (answer === question.correct) correct++;
+                } else if (section.type === 'matching') {
+                    const cp = question.correctPairs;
+                    if (answer && answer.length === cp.length && cp.every(pair => answer.some(a => a[0] === pair[0] && a[1] === pair[1]))) correct++;
+                } else if (section.type === 'fill') {
+                    if (answer && JSON.stringify(answer) === JSON.stringify(question.blanks)) correct++;
+                } else if (section.type === 'order') {
+                    if (answer && JSON.stringify(answer) === JSON.stringify(question.correct)) correct++;
+                } else if (section.type === 'typing') {
+                    if (answer && answer.toLowerCase() === question.correct.toLowerCase()) correct++;
+                }
+            });
+        });
+        return { correct, total, percentage: total > 0 ? (correct / total) * 100 : 0 };
+    };
+
+    const getFeedback = (p) => {
+        if (p === 100) return { icon: <Trophy className="w-16 h-16 text-yellow-400" />, title: "HOÀN HẢO!", message: "Xuất sắc! Bạn đã làm đúng 100%! Hãy tiếp tục nỗ lực duy trì nhé!", color: "from-yellow-400 to-orange-400" };
+        if (p >= 90) return { icon: <Star className="w-16 h-16 text-blue-400" />, title: "TUYỆT VỜI!", message: "Bạn làm rất tốt! Cố gắng thêm một chút nữa là hoàn hảo!", color: "from-blue-400 to-purple-400" };
+        if (p >= 80) return { icon: <CheckCircle className="w-16 h-16 text-green-400" />, title: "CỐ GẮNG LÊN!", message: "Bạn đã cố gắng! Hãy ôn tập thêm để tiến bộ hơn nhé!", color: "from-green-400 to-teal-400" };
+        return { icon: <RotateCcw className="w-16 h-16 text-red-400" />, title: "HỌC LẠI NHÉ!", message: "Đừng nản chí! Hãy ôn lại bài và thử lại một lần nữa!", color: "from-red-400 to-pink-400" };
+    };
+
     const formatTime = (ms) => {
         const s = Math.floor(ms / 1000);
         const m = Math.floor(s / 60);
         return m + ':' + (s % 60).toString().padStart(2, '0');
+    };
+
+    const renderAnswerReview = () => {
+        return (
+            <div className="space-y-6 max-h-[600px] overflow-y-auto">
+                {sections.map((sec, sIdx) => (
+                    <div key={sIdx} className="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-lg">
+                Bài {sIdx + 1}: {sec.name}
+              </span>
+                        </h3>
+                        {sec.data.map((q, qIdx) => {
+                            const ans = sectionStates[sIdx].answers[qIdx];
+                            let isC = false;
+                            let uAns = '';
+                            let cAns = '';
+
+                            if (sec.type === 'multiple' || sec.type === 'connect') {
+                                isC = ans === q.correct;
+                                uAns = ans != null ? q.options[ans] : 'Chưa trả lời';
+                                cAns = q.options[q.correct];
+                            } else if (sec.type === 'matching') {
+                                const cp = q.correctPairs;
+                                isC = ans && ans.length === cp.length && cp.every(pair => ans.some(a => a[0] === pair[0] && a[1] === pair[1]));
+                                uAns = isC ? 'Ghép đúng' : 'Ghép sai';
+                                cAns = q.explanation;
+                            } else if (sec.type === 'fill') {
+                                isC = ans && JSON.stringify(ans) === JSON.stringify(q.blanks);
+                                uAns = ans ? ans.join(', ') : 'Chưa trả lời';
+                                cAns = q.blanks.join(', ');
+                            } else if (sec.type === 'order') {
+                                isC = ans && JSON.stringify(ans) === JSON.stringify(q.correct);
+                                uAns = ans ? ans.map(idx => q.words[idx]).join(' ') : 'Chưa trả lời';
+                                cAns = q.correctSentence;
+                            } else if (sec.type === 'typing') {
+                                isC = ans && ans.toLowerCase() === q.correct.toLowerCase();
+                                uAns = ans || 'Chưa trả lời';
+                                cAns = q.correct;
+                            }
+
+                            return (
+                                <div key={qIdx} className="mb-4 p-4 bg-white rounded-lg border-l-4" style={{borderLeftColor: isC ? '#10b981' : '#ef4444'}}>
+                                    <div className="flex items-start gap-3">
+                                        {isC ? (
+                                            <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                                        ) : (
+                                            <XCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                                        )}
+                                        <div className="flex-1">
+                                            <p className="font-bold text-gray-800 mb-2">Câu {qIdx + 1}</p>
+                                            {uAns && (
+                                                <div className="mb-2">
+                                                    <span className="text-sm font-semibold text-gray-600">Câu trả lời của bạn: </span>
+                                                    <span className={'text-sm font-medium ' + (isC ? 'text-green-600' : 'text-red-600')}>
+                            {uAns}
+                          </span>
+                                                </div>
+                                            )}
+                                            {!isC && cAns && (
+                                                <div className="mb-2">
+                                                    <span className="text-sm font-semibold text-gray-600">Đáp án đúng: </span>
+                                                    <span className="text-sm font-medium text-green-600">{cAns}</span>
+                                                </div>
+                                            )}
+                                            <p className="text-sm text-gray-600 italic bg-blue-50 p-2 rounded mt-2">💡 {q.explanation}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                ))}
+            </div>
+        );
     };
 
     const renderQuestionContent = (sIdx) => {
@@ -152,7 +270,10 @@ export default function JapaneseTestApp() {
                         {q.options.map((opt, idx) => (
                             <button
                                 key={idx}
-                                onClick={() => updateSectionState(sIdx, { selectedOption: idx })}
+                                onClick={() => {
+                                    updateSectionState(sIdx, { selectedOption: idx });
+                                    saveAnswerImmediately(sIdx, idx);
+                                }}
                                 className={'p-4 rounded-xl text-lg font-medium transition-all ' + (state.selectedOption === idx ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg' : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200')}
                             >
                                 {opt}
@@ -188,7 +309,11 @@ export default function JapaneseTestApp() {
                                     onClick={() => {
                                         if (state.selectedLeft !== null) {
                                             const newPairs = state.matchedPairs.filter(p => p[0] !== state.selectedLeft && p[1] !== idx);
-                                            updateSectionState(sIdx, { matchedPairs: [...newPairs, [state.selectedLeft, idx]], selectedLeft: null });
+                                            const updatedPairs = [...newPairs, [state.selectedLeft, idx]];
+                                            updateSectionState(sIdx, { matchedPairs: updatedPairs, selectedLeft: null });
+                                            if (updatedPairs.length === q.left.length) {
+                                                saveAnswerImmediately(sIdx, updatedPairs);
+                                            }
                                         }
                                     }}
                                     className={'w-full p-4 rounded-xl text-xl font-medium transition-all ' + (state.matchedPairs.some(p => p[1] === idx) ? 'bg-green-100 text-green-700 border-2 border-green-400' : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200')}
@@ -231,6 +356,9 @@ export default function JapaneseTestApp() {
                                             const newAnswers = [...state.fillBlankAnswers];
                                             newAnswers[blankIdx] = opt;
                                             updateSectionState(sIdx, { fillBlankAnswers: newAnswers });
+                                            if (newAnswers.length === q.blanks.length && newAnswers.every(a => a !== undefined)) {
+                                                saveAnswerImmediately(sIdx, newAnswers);
+                                            }
                                         }}
                                         className={'p-3 rounded-lg text-lg font-medium transition-all ' + (state.fillBlankAnswers[blankIdx] === opt ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200')}
                                     >
@@ -255,7 +383,10 @@ export default function JapaneseTestApp() {
                         {q.options.map((opt, idx) => (
                             <button
                                 key={idx}
-                                onClick={() => updateSectionState(sIdx, { selectedOption: idx })}
+                                onClick={() => {
+                                    updateSectionState(sIdx, { selectedOption: idx });
+                                    saveAnswerImmediately(sIdx, idx);
+                                }}
                                 className={'p-8 rounded-xl text-6xl transition-all ' + (state.selectedOption === idx ? 'bg-gradient-to-r from-green-400 to-blue-400 shadow-lg' : 'bg-white hover:bg-gray-50 border-2 border-gray-200')}
                             >
                                 {opt}
@@ -276,7 +407,10 @@ export default function JapaneseTestApp() {
                             {state.sentenceOrder.map((idx, pos) => (
                                 <button
                                     key={pos}
-                                    onClick={() => updateSectionState(sIdx, { sentenceOrder: state.sentenceOrder.filter((x, i) => i !== pos) })}
+                                    onClick={() => {
+                                        const newOrder = state.sentenceOrder.filter((x, i) => i !== pos);
+                                        updateSectionState(sIdx, { sentenceOrder: newOrder });
+                                    }}
                                     className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-xl font-bold hover:opacity-80"
                                 >
                                     {q.words[idx]}
@@ -290,7 +424,13 @@ export default function JapaneseTestApp() {
                             return (
                                 <button
                                     key={i}
-                                    onClick={() => updateSectionState(sIdx, { sentenceOrder: [...state.sentenceOrder, originalIdx] })}
+                                    onClick={() => {
+                                        const newOrder = [...state.sentenceOrder, originalIdx];
+                                        updateSectionState(sIdx, { sentenceOrder: newOrder });
+                                        if (newOrder.length === q.words.length) {
+                                            saveAnswerImmediately(sIdx, newOrder);
+                                        }
+                                    }}
                                     className="p-4 bg-white hover:bg-gray-50 border-2 border-gray-200 rounded-lg text-xl font-medium"
                                 >
                                     {word}
@@ -313,7 +453,13 @@ export default function JapaneseTestApp() {
                     <input
                         type="text"
                         value={state.typingAnswer}
-                        onChange={(e) => updateSectionState(sIdx, { typingAnswer: e.target.value })}
+                        onChange={(e) => {
+                            const value = e.target.value;
+                            updateSectionState(sIdx, { typingAnswer: value });
+                            if (value.trim()) {
+                                saveAnswerImmediately(sIdx, value.trim());
+                            }
+                        }}
                         placeholder={q.placeholder}
                         className="w-full px-6 py-4 text-2xl text-center border-4 border-purple-300 rounded-xl focus:border-purple-500 focus:outline-none font-bold"
                     />
@@ -353,17 +499,57 @@ export default function JapaneseTestApp() {
     }
 
     if (isFinished) {
+        const score = calculateScore();
+        const feedback = getFeedback(score.percentage);
+
         return (
             <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 p-4">
                 <div className="max-w-4xl mx-auto">
-                    <div className="bg-white rounded-3xl shadow-2xl p-8 text-center">
-                        <div className="inline-block bg-gradient-to-r from-purple-100 to-pink-100 px-6 py-3 rounded-full mb-4">
-                            <p className="text-sm text-gray-600">Học sinh</p>
-                            <p className="text-2xl font-bold text-purple-700">{studentName}</p>
+                    <div className="bg-white rounded-3xl shadow-2xl p-8 mb-6">
+                        <div className="text-center mb-8">
+                            <div className="inline-block bg-gradient-to-r from-purple-100 to-pink-100 px-6 py-3 rounded-full mb-4">
+                                <p className="text-sm text-gray-600">Học sinh</p>
+                                <p className="text-2xl font-bold text-purple-700">{studentName}</p>
+                            </div>
+                            <div className="mb-4">{feedback.icon}</div>
+                            <h2 className={'text-4xl font-bold bg-gradient-to-r ' + feedback.color + ' bg-clip-text text-transparent mb-4'}>
+                                {feedback.title}
+                            </h2>
+                            <p className="text-xl text-gray-700 mb-6">{feedback.message}</p>
+
+                            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-6">
+                                <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-4 rounded-xl">
+                                    <p className="text-3xl font-bold text-blue-700">{score.correct}/{score.total}</p>
+                                    <p className="text-sm text-blue-600">Câu đúng</p>
+                                </div>
+                                <div className="bg-gradient-to-br from-green-100 to-green-200 p-4 rounded-xl">
+                                    <p className="text-3xl font-bold text-green-700">{score.percentage.toFixed(1)}%</p>
+                                    <p className="text-sm text-green-600">Điểm số</p>
+                                </div>
+                                <div className="bg-gradient-to-br from-purple-100 to-purple-200 p-4 rounded-xl">
+                                    <p className="text-3xl font-bold text-purple-700">{formatTime(elapsedTime)}</p>
+                                    <p className="text-sm text-purple-600">Thời gian</p>
+                                </div>
+                            </div>
+
+                            <button
+                                onClick={() => setShowAnswers(!showAnswers)}
+                                className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transform hover:scale-105 transition-all flex items-center gap-2 mx-auto"
+                            >
+                                <Eye className="w-5 h-5" />
+                                {showAnswers ? 'Ẩn đáp án' : 'Xem đáp án'}
+                            </button>
                         </div>
-                        <Trophy className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
-                        <h2 className="text-4xl font-bold mb-4">Hoàn thành!</h2>
-                        <p className="text-xl mb-6">Thời gian: {formatTime(elapsedTime)}</p>
+
+                        {showAnswers && (
+                            <div className="mt-8">
+                                <h3 className="text-2xl font-bold text-gray-800 mb-4">📝 Đáp án chi tiết:</h3>
+                                {renderAnswerReview()}
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="text-center">
                         <button
                             onClick={() => {
                                 setHasStarted(false);
@@ -371,11 +557,13 @@ export default function JapaneseTestApp() {
                                 setSectionStates(sections.map(() => ({ currentQuestion: 0, answers: {}, selectedOption: null, matchedPairs: [], selectedLeft: null, fillBlankAnswers: [], sentenceOrder: [], typingAnswer: '' })));
                                 setStartTime(null);
                                 setElapsedTime(0);
+                                setShowAnswers(false);
                                 setStudentName('');
                             }}
-                            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg flex items-center gap-2 mx-auto"
+                            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transform hover:scale-105 transition-all flex items-center gap-2 mx-auto"
                         >
-                            <RotateCcw className="w-5 h-5" />Làm bài mới
+                            <RotateCcw className="w-5 h-5" />
+                            Làm bài mới
                         </button>
                     </div>
                 </div>
