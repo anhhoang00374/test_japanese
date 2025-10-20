@@ -3,33 +3,47 @@ import { Star, Trophy, Clock, CheckCircle, XCircle, Play, Eye, RotateCcw, Chevro
 
 const TEST_DATA = {
     multipleChoice: [
-        { question: "Chọn từ đúng cho Con mèo:", options: ["ねこ", "いぬ", "とり", "さかな"], correct: 0, explanation: "ねこ (neko) nghĩa là con mèo" },
-        { question: "Chọn nghĩa đúng của おはよう:", options: ["Chào buổi tối", "Chào buổi sáng", "Tạm biệt", "Cảm ơn"], correct: 1, explanation: "おはよう (ohayou) nghĩa là chào buổi sáng" }
+        { question: "Chọn từ đúng cho từ con đường:", options: ["みち", "いぬ", "とり", "さかな"], correct: 0, explanation: "みち　nghĩa là con đường " },
+        { question: "Chọn nghĩa đúng của đường phố/con phố:", options: ["ほし", "まち", "もも", "て"], correct: 1, explanation: "まち nghĩa là đường phố/con phố" },
+        { question: "Chọn từ đúng cho từ cái tai:", options: ["みち", "ねこ", "とり", "みみ"], correct: 3, explanation: "みみ　nghĩa là cái tai " },
+        { question: "Chọn từ đúng cho từ côn trùng:", options: ["やま", "むし", "あめ", "さかな"], correct: 1, explanation: "むし　nghĩa là côn trùng " },
+        { question: "Chọn từ đúng cho từ con mắt:", options: ["みち", "ねこ", "とり", "め"], correct: 3, explanation: "め　nghĩa là con mắt " }
     ],
-    matching: [{ left: ["水", "火", "木"], right: ["Lửa", "Cây", "Nước"], correctPairs: [[0, 2], [1, 0], [2, 1]], explanation: "水=Nước, 火=Lửa, 木=Cây" }],
+    matching: [{ left: ["へや", "あめ", "やま", "ゆき", "ゆめ"], right: ["Giấc mơ", "Mưa", "Căn phòng", "Ngọn núi", "Tuyết" ], correctPairs: [[0, 2], [1, 1], [2, 3], [3, 4], [4, 0]],
+        explanation: "へや = Căn phòng, あめ = Mưa, やま = Ngọn núi, ゆき = Tuyết, ゆめ = Giấc mơ" }],
     fillBlank: [
         { sentence: "わたし___ ___です", blanks: ["は", "がくせい"], options: [["は", "を", "が", "に"], ["せんせい", "がくせい", "いしゃ", "かいしゃいん"]], explanation: "わたしは がくせいです = Tôi là học sinh" },
         { sentence: "これ___ ___です", blanks: ["は", "ほん"], options: [["は", "を", "が", "の"], ["ほん", "ペン", "ノート", "つくえ"]], explanation: "これは ほんです = Đây là sách" }
     ],
     wordConnect: [
-        { word: "りんご", options: ["🍎", "🍌", "🍇", "🍊"], correct: 0, explanation: "りんご (ringo) = táo" },
-        { word: "いぬ", options: ["🐱", "🐶", "🐰", "🐭"], correct: 1, explanation: "いぬ (inu) = con chó" }
+        { word: "もも", options: ["🌙", "🌇", "⭐", "🍑"], correct: 3, explanation: "もも là quả đào" },
+        { word: "やすみ", options: ["⛵", "👤", "😴", "🌸"], correct: 2, explanation: "やすみ là nghỉ ngơi" }
     ],
     sentenceOrder: [
         { words: ["です", "がくせい", "は", "わたし"], correct: [3, 2, 1, 0], correctSentence: "わたし は がくせい です", explanation: "わたし は がくせい です (Tôi là học sinh)" }
     ],
     typing: [
-        { question: "Quả đào", placeholder: "Nhập từ vựng", correct: "もも", hint: "も + も", explanation: "もも (momo) = quả đào" },
-        { question: "Con mèo", placeholder: "Nhập từ vựng", correct: "ねこ", hint: "ね + こ", explanation: "ねこ (neko) = con mèo" }
+        { question: "Con đường", placeholder: "Nhập từ vựng", correct: "みち", hint: "も + も", explanation: "みち là Con đường" },
+        { question: "Con phố", placeholder: "Nhập từ vựng", correct: "まち", hint: "ね + こ", explanation: "まち là Con phố" },
+        { question: "Cái tai", placeholder: "Nhập từ vựng", correct: "みみ", hint: "も + も", explanation: "みみ là Cái tai" },
+        { question: "Côn trùng", placeholder: "Nhập từ vựng", correct: "むし", hint: "も + も", explanation: "むし là Côn trùng" },
+        { question: "Con mắt", placeholder: "Nhập từ vựng", correct: "め", hint: "も + も", explanation: "め là Con mắt" },
+        { question: "Quả đào", placeholder: "Nhập từ vựng", correct: "もも", hint: "も + も", explanation: "もも là Quả đào" },
+        { question: "Mưa", placeholder: "Nhập từ vựng", correct: "あめ", hint: "も + も", explanation: "あめ là Mưa" },
+        { question: "Ngọn núi", placeholder: "Nhập từ vựng", correct: "やま", hint: "も + も", explanation: "やま là Ngọn núi" },
+        { question: "Tuyết", placeholder: "Nhập từ vựng", correct: "ゆき", hint: "も + も", explanation: "ゆき là Tuyết" },
+        { question: "Giấc mơ", placeholder: "Nhập từ vựng", correct: "ゆめ", hint: "も + も", explanation: "ゆめ là Giấc mơ" },
+        { question: "Căn phòng", placeholder: "Nhập từ vựng", correct: "へや", hint: "も + も", explanation: "へや là Căn phòng" },
+        { question: "Nghỉ ngơi", placeholder: "Nhập từ vựng", correct: "やすみ", hint: "も + も", explanation: "やすみ là Nghỉ ngơi" },
     ]
 };
 
 const sections = [
     { name: 'Chọn đáp án', data: TEST_DATA.multipleChoice, type: 'multiple' },
     { name: 'Ghép từ', data: TEST_DATA.matching, type: 'matching' },
-    { name: 'Điền từ', data: TEST_DATA.fillBlank, type: 'fill' },
-    { name: 'Nối từ', data: TEST_DATA.wordConnect, type: 'connect' },
-    { name: 'Sắp xếp câu', data: TEST_DATA.sentenceOrder, type: 'order' },
+    // { name: 'Điền từ', data: TEST_DATA.fillBlank, type: 'fill' },
+    // { name: 'Nối từ', data: TEST_DATA.wordConnect, type: 'connect' },
+    // { name: 'Sắp xếp câu', data: TEST_DATA.sentenceOrder, type: 'order' },
     { name: 'Nhập từ', data: TEST_DATA.typing, type: 'typing' }
 ];
 
@@ -327,120 +341,120 @@ export default function JapaneseTestApp() {
             );
         }
 
-        if (section.type === 'fill') {
-            return (
-                <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Điền từ vào chỗ trống:</h3>
-                    <div className="bg-white p-6 rounded-xl border-2 border-gray-200">
-                        <p className="text-3xl font-bold text-center">
-                            {q.sentence.split('___').map((part, idx) => (
-                                <React.Fragment key={idx}>
-                                    {part}
-                                    {idx < q.blanks.length && (
-                                        <span className="inline-block mx-2 px-4 py-2 bg-yellow-100 border-2 border-yellow-400 rounded-lg min-w-[100px] text-center">
-                      {state.fillBlankAnswers[idx] || '___'}
-                    </span>
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </p>
-                    </div>
-                    {q.options.map((opts, blankIdx) => (
-                        <div key={blankIdx} className="space-y-2">
-                            <p className="text-sm font-semibold text-gray-600">Chỗ trống {blankIdx + 1}:</p>
-                            <div className="grid grid-cols-4 gap-2">
-                                {opts.map((opt, optIdx) => (
-                                    <button
-                                        key={optIdx}
-                                        onClick={() => {
-                                            const newAnswers = [...state.fillBlankAnswers];
-                                            newAnswers[blankIdx] = opt;
-                                            updateSectionState(sIdx, { fillBlankAnswers: newAnswers });
-                                            if (newAnswers.length === q.blanks.length && newAnswers.every(a => a !== undefined)) {
-                                                saveAnswerImmediately(sIdx, newAnswers);
-                                            }
-                                        }}
-                                        className={'p-3 rounded-lg text-lg font-medium transition-all ' + (state.fillBlankAnswers[blankIdx] === opt ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200')}
-                                    >
-                                        {opt}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            );
-        }
+        // if (section.type === 'fill') {
+        //     return (
+        //         <div className="space-y-4">
+        //             <h3 className="text-xl font-bold text-gray-800">Điền từ vào chỗ trống:</h3>
+        //             <div className="bg-white p-6 rounded-xl border-2 border-gray-200">
+        //                 <p className="text-3xl font-bold text-center">
+        //                     {q.sentence.split('___').map((part, idx) => (
+        //                         <React.Fragment key={idx}>
+        //                             {part}
+        //                             {idx < q.blanks.length && (
+        //                                 <span className="inline-block mx-2 px-4 py-2 bg-yellow-100 border-2 border-yellow-400 rounded-lg min-w-[100px] text-center">
+        //               {state.fillBlankAnswers[idx] || '___'}
+        //             </span>
+        //                             )}
+        //                         </React.Fragment>
+        //                     ))}
+        //                 </p>
+        //             </div>
+        //             {q.options.map((opts, blankIdx) => (
+        //                 <div key={blankIdx} className="space-y-2">
+        //                     <p className="text-sm font-semibold text-gray-600">Chỗ trống {blankIdx + 1}:</p>
+        //                     <div className="grid grid-cols-4 gap-2">
+        //                         {opts.map((opt, optIdx) => (
+        //                             <button
+        //                                 key={optIdx}
+        //                                 onClick={() => {
+        //                                     const newAnswers = [...state.fillBlankAnswers];
+        //                                     newAnswers[blankIdx] = opt;
+        //                                     updateSectionState(sIdx, { fillBlankAnswers: newAnswers });
+        //                                     if (newAnswers.length === q.blanks.length && newAnswers.every(a => a !== undefined)) {
+        //                                         saveAnswerImmediately(sIdx, newAnswers);
+        //                                     }
+        //                                 }}
+        //                                 className={'p-3 rounded-lg text-lg font-medium transition-all ' + (state.fillBlankAnswers[blankIdx] === opt ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200')}
+        //                             >
+        //                                 {opt}
+        //                             </button>
+        //                         ))}
+        //                     </div>
+        //                 </div>
+        //             ))}
+        //         </div>
+        //     );
+        // }
 
-        if (section.type === 'connect') {
-            return (
-                <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Chọn biểu tượng đúng:</h3>
-                    <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
-                        <p className="text-5xl font-bold">{q.word}</p>
-                    </div>
-                    <div className="grid grid-cols-4 gap-4">
-                        {q.options.map((opt, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => {
-                                    updateSectionState(sIdx, { selectedOption: idx });
-                                    saveAnswerImmediately(sIdx, idx);
-                                }}
-                                className={'p-8 rounded-xl text-6xl transition-all ' + (state.selectedOption === idx ? 'bg-gradient-to-r from-green-400 to-blue-400 shadow-lg' : 'bg-white hover:bg-gray-50 border-2 border-gray-200')}
-                            >
-                                {opt}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            );
-        }
+        // if (section.type === 'connect') {
+        //     return (
+        //         <div className="space-y-4">
+        //             <h3 className="text-xl font-bold text-gray-800">Chọn biểu tượng đúng:</h3>
+        //             <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
+        //                 <p className="text-5xl font-bold">{q.word}</p>
+        //             </div>
+        //             <div className="grid grid-cols-4 gap-4">
+        //                 {q.options.map((opt, idx) => (
+        //                     <button
+        //                         key={idx}
+        //                         onClick={() => {
+        //                             updateSectionState(sIdx, { selectedOption: idx });
+        //                             saveAnswerImmediately(sIdx, idx);
+        //                         }}
+        //                         className={'p-8 rounded-xl text-6xl transition-all ' + (state.selectedOption === idx ? 'bg-gradient-to-r from-green-400 to-blue-400 shadow-lg' : 'bg-white hover:bg-gray-50 border-2 border-gray-200')}
+        //                     >
+        //                         {opt}
+        //                     </button>
+        //                 ))}
+        //             </div>
+        //         </div>
+        //     );
+        // }
 
-        if (section.type === 'order') {
-            const availableWords = q.words.filter((w, idx) => !state.sentenceOrder.includes(idx));
-            return (
-                <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Sắp xếp thành câu đúng:</h3>
-                    <div className="bg-white p-6 rounded-xl border-2 border-gray-200 min-h-[100px]">
-                        <div className="flex flex-wrap gap-2 justify-center">
-                            {state.sentenceOrder.map((idx, pos) => (
-                                <button
-                                    key={pos}
-                                    onClick={() => {
-                                        const newOrder = state.sentenceOrder.filter((x, i) => i !== pos);
-                                        updateSectionState(sIdx, { sentenceOrder: newOrder });
-                                    }}
-                                    className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-xl font-bold hover:opacity-80"
-                                >
-                                    {q.words[idx]}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-4 gap-3">
-                        {availableWords.map((word, i) => {
-                            const originalIdx = q.words.findIndex((w, j) => w === word && !state.sentenceOrder.includes(j));
-                            return (
-                                <button
-                                    key={i}
-                                    onClick={() => {
-                                        const newOrder = [...state.sentenceOrder, originalIdx];
-                                        updateSectionState(sIdx, { sentenceOrder: newOrder });
-                                        if (newOrder.length === q.words.length) {
-                                            saveAnswerImmediately(sIdx, newOrder);
-                                        }
-                                    }}
-                                    className="p-4 bg-white hover:bg-gray-50 border-2 border-gray-200 rounded-lg text-xl font-medium"
-                                >
-                                    {word}
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-            );
-        }
+        // if (section.type === 'order') {
+        //     const availableWords = q.words.filter((w, idx) => !state.sentenceOrder.includes(idx));
+        //     return (
+        //         <div className="space-y-4">
+        //             <h3 className="text-xl font-bold text-gray-800">Sắp xếp thành câu đúng:</h3>
+        //             <div className="bg-white p-6 rounded-xl border-2 border-gray-200 min-h-[100px]">
+        //                 <div className="flex flex-wrap gap-2 justify-center">
+        //                     {state.sentenceOrder.map((idx, pos) => (
+        //                         <button
+        //                             key={pos}
+        //                             onClick={() => {
+        //                                 const newOrder = state.sentenceOrder.filter((x, i) => i !== pos);
+        //                                 updateSectionState(sIdx, { sentenceOrder: newOrder });
+        //                             }}
+        //                             className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-xl font-bold hover:opacity-80"
+        //                         >
+        //                             {q.words[idx]}
+        //                         </button>
+        //                     ))}
+        //                 </div>
+        //             </div>
+        //             <div className="grid grid-cols-4 gap-3">
+        //                 {availableWords.map((word, i) => {
+        //                     const originalIdx = q.words.findIndex((w, j) => w === word && !state.sentenceOrder.includes(j));
+        //                     return (
+        //                         <button
+        //                             key={i}
+        //                             onClick={() => {
+        //                                 const newOrder = [...state.sentenceOrder, originalIdx];
+        //                                 updateSectionState(sIdx, { sentenceOrder: newOrder });
+        //                                 if (newOrder.length === q.words.length) {
+        //                                     saveAnswerImmediately(sIdx, newOrder);
+        //                                 }
+        //                             }}
+        //                             className="p-4 bg-white hover:bg-gray-50 border-2 border-gray-200 rounded-lg text-xl font-medium"
+        //                         >
+        //                             {word}
+        //                         </button>
+        //                     );
+        //                 })}
+        //             </div>
+        //         </div>
+        //     );
+        // }
 
         if (section.type === 'typing') {
             return (
@@ -448,7 +462,7 @@ export default function JapaneseTestApp() {
                     <h3 className="text-xl font-bold text-gray-800">Nhập từ vựng:</h3>
                     <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
                         <p className="text-3xl font-bold mb-2">{q.question}</p>
-                        <p className="text-sm text-gray-600 italic">Gợi ý: {q.hint}</p>
+                        {/*<p className="text-sm text-gray-600 italic">Gợi ý: {q.hint}</p>*/}
                     </div>
                     <input
                         type="text"
