@@ -9,14 +9,14 @@ export default function JapaneseTestApp() {
         { name: 'Chọn đáp án', data: DATA.multipleChoice, type: 'multiple' },
         { name: 'Ghép từ', data: DATA.matching, type: 'matching' },
         { name: 'Nhập từ', data: DATA.typing, type: 'typing' },
+        { name: 'Chọn nghĩa tiếng Việt', data: DATA.wordConnect, type: 'connect' },
         { name: 'Điền từ', data: DATA.fillBlank, type: 'fill' },
-        // { name: 'Nối từ', data: DATA.wordConnect, type: 'connect' },
         { name: 'Sắp xếp câu', data: DATA.sentenceOrder, type: 'order' },
 
     ];
 
     const not_test_lesson = ['test1','test2'];
-    const not_test = ["Điền từ","Nối từ", "Sắp xếp câu"];
+    const not_test = ["Điền từ", "Sắp xếp câu"];
     const [studentName, setStudentName] = useState('');
     const [hasStarted, setHasStarted] = useState(false);
     const [startTime, setStartTime] = useState(null);
@@ -250,7 +250,7 @@ export default function JapaneseTestApp() {
         const section = sections[sIdx];
         const state = sectionStates[sIdx];
         const q = section.data[state.currentQuestion];
-
+        console.log(q);
         if (section.type === 'multiple') {
             return (
                 <div className="space-y-4">
@@ -364,7 +364,7 @@ export default function JapaneseTestApp() {
         if (section.type === 'connect') {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Chọn biểu tượng đúng:</h3>
+                    <h3 className="text-xl font-bold text-gray-800">Chọn nghĩa đúng cho từ:</h3>
                     <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
                         <p className="text-5xl font-bold">{q.word}</p>
                     </div>
@@ -376,7 +376,7 @@ export default function JapaneseTestApp() {
                                     updateSectionState(sIdx, { selectedOption: idx });
                                     saveAnswerImmediately(sIdx, idx);
                                 }}
-                                className={'p-8 rounded-xl text-6xl transition-all ' + (state.selectedOption === idx ? 'bg-gradient-to-r from-green-400 to-blue-400 shadow-lg' : 'bg-white hover:bg-gray-50 border-2 border-gray-200')}
+                                className={'p-4 rounded-xl text-2xl transition-all ' + (state.selectedOption === idx ? 'bg-gradient-to-r from-green-400 to-blue-400 shadow-lg' : 'bg-white hover:bg-gray-50 border-2 border-gray-200')}
                             >
                                 {opt}
                             </button>
