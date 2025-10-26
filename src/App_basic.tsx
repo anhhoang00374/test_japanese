@@ -1,22 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Trophy, Clock, CheckCircle, XCircle, Play, Eye, RotateCcw, ChevronRight, ChevronLeft } from 'lucide-react';
-import {ALL_TESTS} from "./data.tsx";
+
+const TEST_DATA = {
+    multipleChoice: [
+        { question: "Chọn từ đúng cho từ con đường:", options: ["みち", "いぬ", "とり", "さかな"], correct: 0, explanation: "みち　nghĩa là con đường " },
+        { question: "Chọn nghĩa đúng của đường phố/con phố:", options: ["ほし", "まち", "もも", "て"], correct: 1, explanation: "まち nghĩa là đường phố/con phố" },
+        { question: "Chọn từ đúng cho từ cái tai:", options: ["みち", "ねこ", "とり", "みみ"], correct: 3, explanation: "みみ　nghĩa là cái tai " },
+        { question: "Chọn từ đúng cho từ côn trùng:", options: ["やま", "むし", "あめ", "さかな"], correct: 1, explanation: "むし　nghĩa là côn trùng " },
+        { question: "Chọn từ đúng cho từ con mắt:", options: ["みち", "ねこ", "とり", "め"], correct: 3, explanation: "め　nghĩa là con mắt " }
+    ],
+    matching: [{ left: ["へや", "あめ", "やま", "ゆき", "ゆめ"], right: ["Giấc mơ", "Mưa", "Căn phòng", "Ngọn núi", "Tuyết" ], correctPairs: [[0, 2], [1, 1], [2, 3], [3, 4], [4, 0]],
+        explanation: "へや = Căn phòng, あめ = Mưa, やま = Ngọn núi, ゆき = Tuyết, ゆめ = Giấc mơ" }],
+    fillBlank: [
+        { sentence: "わたし___ ___です", blanks: ["は", "がくせい"], options: [["は", "を", "が", "に"], ["せんせい", "がくせい", "いしゃ", "かいしゃいん"]], explanation: "わたしは がくせいです = Tôi là học sinh" },
+        { sentence: "これ___ ___です", blanks: ["は", "ほん"], options: [["は", "を", "が", "の"], ["ほん", "ペン", "ノート", "つくえ"]], explanation: "これは ほんです = Đây là sách" }
+    ],
+    wordConnect: [
+        { word: "もも", options: ["🌙", "🌇", "⭐", "🍑"], correct: 3, explanation: "もも là quả đào" },
+        { word: "やすみ", options: ["⛵", "👤", "😴", "🌸"], correct: 2, explanation: "やすみ là nghỉ ngơi" }
+    ],
+    sentenceOrder: [
+        { words: ["です", "がくせい", "は", "わたし"], correct: [3, 2, 1, 0], correctSentence: "わたし は がくせい です", explanation: "わたし は がくせい です (Tôi là học sinh)" }
+    ],
+    typing: [
+        { question: "Con đường", placeholder: "Nhập từ vựng", correct: "みち", hint: "も + も", explanation: "みち là Con đường" },
+        { question: "Con phố", placeholder: "Nhập từ vựng", correct: "まち", hint: "ね + こ", explanation: "まち là Con phố" },
+        { question: "Cái tai", placeholder: "Nhập từ vựng", correct: "みみ", hint: "も + も", explanation: "みみ là Cái tai" },
+        { question: "Côn trùng", placeholder: "Nhập từ vựng", correct: "むし", hint: "も + も", explanation: "むし là Côn trùng" },
+        { question: "Con mắt", placeholder: "Nhập từ vựng", correct: "め", hint: "も + も", explanation: "め là Con mắt" },
+        { question: "Quả đào", placeholder: "Nhập từ vựng", correct: "もも", hint: "も + も", explanation: "もも là Quả đào" },
+        { question: "Mưa", placeholder: "Nhập từ vựng", correct: "あめ", hint: "も + も", explanation: "あめ là Mưa" },
+        { question: "Ngọn núi", placeholder: "Nhập từ vựng", correct: "やま", hint: "も + も", explanation: "やま là Ngọn núi" },
+        { question: "Tuyết", placeholder: "Nhập từ vựng", correct: "ゆき", hint: "も + も", explanation: "ゆき là Tuyết" },
+        { question: "Giấc mơ", placeholder: "Nhập từ vựng", correct: "ゆめ", hint: "も + も", explanation: "ゆめ là Giấc mơ" },
+        { question: "Căn phòng", placeholder: "Nhập từ vựng", correct: "へや", hint: "も + も", explanation: "へや là Căn phòng" },
+        { question: "Nghỉ ngơi", placeholder: "Nhập từ vựng", correct: "やすみ", hint: "も + も", explanation: "やすみ là Nghỉ ngơi" },
+    ]
+};
+
+const sections = [
+    { name: 'Chọn đáp án', data: TEST_DATA.multipleChoice, type: 'multiple' },
+    { name: 'Ghép từ', data: TEST_DATA.matching, type: 'matching' },
+    { name: 'Điền từ', data: TEST_DATA.fillBlank, type: 'fill' },
+    { name: 'Nối từ', data: TEST_DATA.wordConnect, type: 'connect' },
+    { name: 'Sắp xếp câu', data: TEST_DATA.sentenceOrder, type: 'order' },
+    { name: 'Nhập từ', data: TEST_DATA.typing, type: 'typing' }
+];
 
 export default function JapaneseTestApp() {
-    const [selectedTest, setSelectedTest] = useState('test1');
-    const DATA = ALL_TESTS[selectedTest];
-    const sections = [
-        { name: 'Chọn đáp án', data: DATA.multipleChoice, type: 'multiple' },
-        { name: 'Ghép từ', data: DATA.matching, type: 'matching' },
-        { name: 'Nhập từ', data: DATA.typing, type: 'typing' },
-        { name: 'Điền từ', data: DATA.fillBlank, type: 'fill' },
-        // { name: 'Nối từ', data: DATA.wordConnect, type: 'connect' },
-        { name: 'Sắp xếp câu', data: DATA.sentenceOrder, type: 'order' },
-
-    ];
-
-    const not_test_lesson = ['test1','test2'];
-    const not_test = ["Điền từ","Nối từ", "Sắp xếp câu"];
     const [studentName, setStudentName] = useState('');
     const [hasStarted, setHasStarted] = useState(false);
     const [startTime, setStartTime] = useState(null);
@@ -116,9 +147,7 @@ export default function JapaneseTestApp() {
     };
 
     const isAllCompleted = () => {
-        return sections
-            .filter(item => !(not_test_lesson.includes(selectedTest) && not_test.includes(item.name)))
-            .every((sec, sIdx) => {
+        return sections.every((sec, sIdx) => {
             const state = sectionStates[sIdx];
             return sec.data.every((q, qIdx) => state.answers[qIdx] !== undefined);
         });
@@ -132,9 +161,7 @@ export default function JapaneseTestApp() {
 
     const calculateScore = () => {
         let correct = 0, total = 0;
-        sections
-            .filter(item => !(not_test_lesson.includes(selectedTest) && not_test.includes(item.name)))
-            .forEach((section, sIdx) => {
+        sections.forEach((section, sIdx) => {
             const state = sectionStates[sIdx];
             section.data.forEach((question, qIdx) => {
                 total++;
@@ -172,9 +199,7 @@ export default function JapaneseTestApp() {
     const renderAnswerReview = () => {
         return (
             <div className="space-y-6 max-h-[600px] overflow-y-auto">
-                {sections
-                    .filter(item => !(not_test_lesson.includes(selectedTest) && not_test.includes(item.name)))
-                    .map((sec, sIdx) => (
+                {sections.map((sec, sIdx) => (
                     <div key={sIdx} className="bg-gray-50 p-6 rounded-xl shadow-md">
                         <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
               <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-lg">
@@ -316,7 +341,7 @@ export default function JapaneseTestApp() {
             );
         }
 
-        if (section.type === 'fill' ) {
+        if (section.type === 'fill') {
             return (
                 <div className="space-y-4">
                     <h3 className="text-xl font-bold text-gray-800">Điền từ vào chỗ trống:</h3>
@@ -386,7 +411,7 @@ export default function JapaneseTestApp() {
             );
         }
 
-        if (section.type === 'order' ) {
+        if (section.type === 'order') {
             const availableWords = q.words.filter((w, idx) => !state.sentenceOrder.includes(idx));
             return (
                 <div className="space-y-4">
@@ -474,15 +499,6 @@ export default function JapaneseTestApp() {
                             onKeyPress={(e) => e.key === 'Enter' && studentName.trim() && setHasStarted(true) && setStartTime(Date.now())}
                             className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:border-purple-500 focus:outline-none"
                         />
-                        <select
-                            value={selectedTest}
-                            onChange={(e) => setSelectedTest(e.target.value)}
-                            className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:border-purple-500 focus:outline-none bg-white"
-                        >
-                            {Object.keys(ALL_TESTS).map(testKey => (
-                                <option key={testKey} value={testKey}>{ALL_TESTS[testKey].name}</option>
-                            ))}
-                        </select>
                         <button
                             onClick={() => { if (studentName.trim()) { setHasStarted(true); setStartTime(Date.now()); } }}
                             disabled={!studentName.trim()}
@@ -592,8 +608,7 @@ export default function JapaneseTestApp() {
             </div>
 
             <div className="max-w-4xl mx-auto space-y-6">
-                {sections.filter(item => !(not_test_lesson.includes(selectedTest) && not_test.includes(item.name)))
-                    .map((sec, sIdx) => {
+                {sections.map((sec, sIdx) => {
                     const state = sectionStates[sIdx];
                     const progress = getSectionProgress(sIdx);
                     const isCompleted = progress.completed === progress.total;
@@ -659,9 +674,7 @@ export default function JapaneseTestApp() {
                     )}
                     <button
                         onClick={() => {
-                            sections
-                                .filter(item => !(not_test_lesson.includes(selectedTest) && not_test.includes(item.name)))
-                                .forEach((sec, sIdx) => saveCurrentAnswer(sIdx));
+                            sections.forEach((sec, sIdx) => saveCurrentAnswer(sIdx));
                             setIsFinished(true);
                         }}
                         disabled={!allCompleted}
