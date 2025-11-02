@@ -1,4 +1,479 @@
 export const ALL_TESTS = {
+    test3: {
+        name: 'Bài test 3 - Ngày 02-11-2025',
+        multipleChoice: [
+            {
+                question: "Chọn nghĩa đúng của từ 'Cỏ':",
+                options: ["き", "くさ", "えき", "かさ"],
+                correct: 1,
+                explanation: "くさ nghĩa là Cỏ"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'mắt':",
+                options: ["き", "くさ", "め", "かさ"],
+                correct: 2,
+                explanation: "め nghĩa là mắt"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Cây':",
+                options: ["こえ", "あお", "き", "あし"],
+                correct: 2,
+                explanation: "き nghĩa là Cây"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'ga, nhà ga':",
+                options: ["えき", "かお", "すいか", "うし"],
+                correct: 0,
+                explanation: "えき nghĩa là ga, nhà ga"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'giọng nói, tiếng nói':",
+                options: ["あか", "しお", "いす", "こえ"],
+                correct: 3,
+                explanation: "こえ nghĩa là giọng nói, tiếng nói"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'khuôn mặt':",
+                options: ["は", "かお", "て", "くさ"],
+                correct: 1,
+                explanation: "かお nghĩa là khuôn mặt"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'màu xanh nước biển':",
+                options: ["き", "えき", "あお", "かさ"],
+                correct: 2,
+                explanation: "あお nghĩa là màu xanh nước biển"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'màu đỏ':",
+                options: ["あか", "こえ", "あし", "すいか"],
+                correct: 0,
+                explanation: "あか nghĩa là màu đỏ"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Cây dù':",
+                options: ["うし", "しお", "かさ", "いす"],
+                correct: 2,
+                explanation: "かさ nghĩa là Cây dù"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Bàn chân':",
+                options: ["は", "あし", "て", "くさ"],
+                correct: 1,
+                explanation: "あし nghĩa là Bàn chân"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Dưa hấu':",
+                options: ["き", "えき", "こえ", "すいか"],
+                correct: 3,
+                explanation: "すいか nghĩa là Dưa hấu"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Con bò':",
+                options: ["うし", "かお", "あお", "あか"],
+                correct: 0,
+                explanation: "うし nghĩa là Con bò"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Muối':",
+                options: ["かさ", "しお", "あし", "すいか"],
+                correct: 1,
+                explanation: "しお nghĩa là Muối"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Ghế':",
+                options: ["うし", "いす", "は", "て"],
+                correct: 1,
+                explanation: "いす nghĩa là Ghế"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Răng':",
+                options: ["くさ", "き", "は", "えき"],
+                correct: 2,
+                explanation: "は nghĩa là Răng"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'tay':",
+                options: ["こえ", "かお", "あお", "て"],
+                correct: 3,
+                explanation: "て nghĩa là tay"
+            }
+        ],
+        matching: [
+            {
+                left: ["おかし", "せかい", "くち", "つくえ", "たいこ", "つき", "ぬの", "にく", "いぬ", "ねこ"],
+                right: ["Con mèo", "Thịt", "Bánh kẹo", "Cái trống", "Mặt trăng", "cái bàn", "Thế giới", "miệng", "Vải", "Con chó"],
+                correctPairs: [[0, 2], [1, 6], [2, 7], [3, 5], [4, 3], [5, 4], [6, 8], [7, 1], [8, 9], [9, 0]],
+                explanation: "おかし = Bánh kẹo, せかい = Thế giới, くち = miệng, つくえ = cái bàn, たいこ = Cái trống, つき = Mặt trăng, ぬの = Vải, にく = Thịt, いぬ = Con chó, ねこ = Con mèo"
+            }
+        ],
+        typing: [
+            {
+                question: "21",
+                placeholder: "Nhập từ vựng có nghĩa 21",
+                correct: "nijyuuichi",
+                hint: "ni + jyuu + ichi",
+                explanation: "nijyuuichi là 21"
+            },
+            {
+                question: "92",
+                placeholder: "Nhập từ vựng có nghĩa 92",
+                correct: "kyuujyuuni",
+                hint: "kyuu + jyuu + ni",
+                explanation: "kyuujyuuni là 92"
+            },
+            {
+                question: "83",
+                placeholder: "Nhập từ vựng có nghĩa 83",
+                correct: "hachijyuusan",
+                hint: "hachi + jyuu + san",
+                explanation: "hachijyuusan là 83"
+            },
+            {
+                question: "14",
+                placeholder: "Nhập từ vựng có nghĩa 14",
+                correct: "jyuuyon",
+                hint: "jyuu + yon",
+                explanation: "jyuuyon là 14"
+            },
+            {
+                question: "43",
+                placeholder: "Nhập từ vựng có nghĩa 43",
+                correct: "yonjyuusan",
+                hint: "yon + jyuu + san",
+                explanation: "yonjyuusan là 43"
+            },
+            {
+                question: "76",
+                placeholder: "Nhập từ vựng có nghĩa 76",
+                correct: "nanajyuuroku",
+                hint: "nana + jyuu + roku",
+                explanation: "nanajyuuroku là 76"
+            },
+            {
+                question: "35",
+                placeholder: "Nhập từ vựng có nghĩa 35",
+                correct: "sanjyuugo",
+                hint: "san + jyuu + go",
+                explanation: "sanjyuugo là 35"
+            },
+            {
+                question: "59",
+                placeholder: "Nhập từ vựng có nghĩa 59",
+                correct: "gojyuukyuu",
+                hint: "go + jyuu + kyuu",
+                explanation: "gojyuukyuu là 59"
+            },
+            {
+                question: "67",
+                placeholder: "Nhập từ vựng có nghĩa 67",
+                correct: "rokujyuunana",
+                hint: "roku + jyuu + nana",
+                explanation: "rokujyuunana là 67"
+            },
+            {
+                question: "28",
+                placeholder: "Nhập từ vựng có nghĩa 28",
+                correct: "nijyuuhachi",
+                hint: "ni + jyuu + hachi",
+                explanation: "nijyuuhachi là 28"
+            }
+        ],
+        wordConnect: [
+            {
+                word: "Vải",
+                options: ["ぬの", "にく", "いぬ", "はな"],
+                correct: 0,
+                explanation: "Vải là ぬの"
+            },
+            {
+                word: "Thịt",
+                options: ["ねこ", "にく", "そと", "は"],
+                correct: 1,
+                explanation: "Thịt là にく"
+            },
+            {
+                word: "Con chó",
+                options: ["ほし", "ふね", "いぬ", "なか"],
+                correct: 2,
+                explanation: "Con chó là いぬ"
+            },
+            {
+                word: "Con mèo",
+                options: ["はな", "ひと", "ぬの", "ねこ"],
+                correct: 3,
+                explanation: "Con mèo là ねこ"
+            },
+            {
+                word: "Bên ngoài",
+                options: ["そと", "は", "にく", "ふね"],
+                correct: 0,
+                explanation: "Bên ngoài là そと"
+            },
+            {
+                word: "Bên trong",
+                options: ["いぬ", "なか", "ほし", "ぬの"],
+                correct: 1,
+                explanation: "Bên trong là なか"
+            },
+            {
+                word: "Răng",
+                options: ["ねこ", "はな", "は", "ひと"],
+                correct: 2,
+                explanation: "Răng là は"
+            },
+            {
+                word: "Hoa",
+                options: ["ふね", "にく", "そと", "はな"],
+                correct: 3,
+                explanation: "Hoa là はな"
+            },
+            {
+                word: "Con người",
+                options: ["ひと", "ぬの", "ほし", "なか"],
+                correct: 0,
+                explanation: "Con người là ひと"
+            },
+            {
+                word: "Tàu thuyền",
+                options: ["いぬ", "ふね", "は", "ねこ"],
+                correct: 1,
+                explanation: "Tàu thuyền là ふね"
+            },
+            {
+                word: "Ngôi sao",
+                options: ["そと", "はな", "ほし", "にく"],
+                correct: 2,
+                explanation: "Ngôi sao là ほし"
+            }
+        ],
+        fillBlank: [
+            {
+                sentence: "そ___",
+                blanks: ["と"],
+                options: [["た", "と", "て", "つ"]],
+                explanation: "そと = Bên ngoài"
+            },
+            {
+                sentence: "な___",
+                blanks: ["か"],
+                options: [["き", "く", "か", "け"]],
+                explanation: "なか = Bên trong"
+            },
+            {
+                sentence: "は___",
+                blanks: ["な"],
+                options: [["に", "な", "ぬ", "ね"]],
+                explanation: "はな = Hoa"
+            },
+            {
+                sentence: "ひ___",
+                blanks: ["と"],
+                options: [["て", "つ", "と", "た"]],
+                explanation: "ひと = Con người"
+            },
+            {
+                sentence: "ふ___",
+                blanks: ["ね"],
+                options: [["ね", "な", "に", "の"]],
+                explanation: "ふね = Tàu thuyền"
+            },
+            {
+                sentence: "ほ___",
+                blanks: ["し"],
+                options: [["さ", "す", "し", "せ"]],
+                explanation: "ほし = Ngôi sao"
+            },
+            {
+                sentence: "み___",
+                blanks: ["ち"],
+                options: [["て", "ち", "つ", "と"]],
+                explanation: "みち = Con đường"
+            },
+            {
+                sentence: "ま___",
+                blanks: ["ち"],
+                options: [["ち", "た", "て", "つ"]],
+                explanation: "まち = Con phố"
+            },
+            {
+                sentence: "み___",
+                blanks: ["み"],
+                options: [["む", "み", "ま", "め"]],
+                explanation: "みみ = Cái tai"
+            },
+            {
+                sentence: "む___",
+                blanks: ["し"],
+                options: [["す", "せ", "し", "さ"]],
+                explanation: "むし = sâu, côn trùng"
+            },
+            {
+                sentence: "ら___",
+                blanks: ["ん"],
+                options: [["ん", "わ", "を", "ね"]],
+                explanation: "らん = hoa lan"
+            },
+            {
+                sentence: "や___や",
+                blanks: ["お"],
+                options: [["え", "お", "あ", "い"]],
+                explanation: "やおや = tiệm rau"
+            },
+            {
+                sentence: "く___り___",
+                blanks: ["す", "や"],
+                options: [["し", "す", "さ", "せ"], ["よ", "ゆ", "や", "ら"]],
+                explanation: "くすりや = tiệm thuốc"
+            },
+            {
+                sentence: "し___",
+                blanks: ["ろ"],
+                options: [["ら", "り", "る", "ろ"]],
+                explanation: "しろ = màu trắng"
+            },
+            {
+                sentence: "く___",
+                blanks: ["ろ"],
+                options: [["ろ", "り", "れ", "る"]],
+                explanation: "くろ = màu đen"
+            },
+            {
+                sentence: "ひ___",
+                blanks: ["る"],
+                options: [["ら", "る", "り", "れ"]],
+                explanation: "ひる = buổi trưa"
+            },
+            {
+                sentence: "よ___",
+                blanks: ["る"],
+                options: [["れ", "り", "る", "ろ"]],
+                explanation: "よる = buổi tối"
+            },
+            {
+                sentence: "は___",
+                blanks: ["れ"],
+                options: [["ら", "れ", "り", "る"]],
+                explanation: "はれ = trời nắng"
+            },
+            {
+                sentence: "か___",
+                blanks: ["わ"],
+                options: [["を", "わ", "ん", "ね"]],
+                explanation: "かわ = con sông"
+            },
+            {
+                sentence: "も___",
+                blanks: ["も"],
+                options: [["ま", "も", "む", "め"]],
+                explanation: "もも = Quả đào"
+            },
+            {
+                sentence: "あ___",
+                blanks: ["め"],
+                options: [["む", "ま", "め", "も"]],
+                explanation: "あめ = Mưa"
+            },
+            {
+                sentence: "や___",
+                blanks: ["ま"],
+                options: [["ま", "み", "む", "め"]],
+                explanation: "やま = Ngọn núi"
+            },
+            {
+                sentence: "ゆ___",
+                blanks: ["き"],
+                options: [["け", "き", "く", "か"]],
+                explanation: "ゆき = Tuyết"
+            },
+            {
+                sentence: "ゆ___",
+                blanks: ["め"],
+                options: [["ま", "め", "み", "も"]],
+                explanation: "ゆめ = Giấc mơ"
+            },
+            {
+                sentence: "へ___",
+                blanks: ["や"],
+                options: [["ゆ", "よ", "や", "ら"]],
+                explanation: "へや = Căn phòng"
+            },
+            {
+                sentence: "や___み",
+                blanks: ["す"],
+                options: [["さ", "し", "す", "せ"]],
+                explanation: "やすみ = Nghỉ ngơi"
+            },
+            {
+                sentence: "わ___し",
+                blanks: ["た"],
+                options: [["て", "た", "つ", "と"]],
+                explanation: "わたし = tôi"
+            },
+            {
+                sentence: "に___ん",
+                blanks: ["ほ"],
+                options: [["は", "ほ", "ひ", "へ"]],
+                explanation: "にほん = Nhật Bản"
+            }
+        ],
+        sentenceOrder: [
+            {
+                words: ["い", "す", "か"],
+                correct: [1, 0, 2],
+                correctSentence: "すいか",
+                explanation: "すいか = Dưa hấu"
+            },
+            {
+                words: ["か", "お", "し"],
+                correct: [1, 0, 2],
+                correctSentence: "おかし",
+                explanation: "おかし = Bánh kẹo"
+            },
+            {
+                words: ["か", "せ", "い"],
+                correct: [1, 0, 2],
+                correctSentence: "せかい",
+                explanation: "せかい = Thế giới"
+            },
+            {
+                words: ["く", "え", "つ"],
+                correct: [2, 0, 1],
+                correctSentence: "つくえ",
+                explanation: "つくえ = cái bàn"
+            },
+            {
+                words: ["い", "た", "こ"],
+                correct: [1, 0, 2],
+                correctSentence: "たいこ",
+                explanation: "たいこ = Cái trống"
+            },
+            {
+                words: ["す", "や", "く", "り"],
+                correct: [2, 0, 3, 1],
+                correctSentence: "くすりや",
+                explanation: "くすりや = tiệm thuốc"
+            },
+            {
+                words: ["す", "や", "み"],
+                correct: [1, 0, 2],
+                correctSentence: "やすみ",
+                explanation: "やすみ = Nghỉ ngơi"
+            },
+            {
+                words: ["た", "わ", "し"],
+                correct: [1, 0, 2],
+                correctSentence: "わたし",
+                explanation: "わたし = tôi"
+            },
+            {
+                words: ["ほ", "に", "ん"],
+                correct: [1, 0, 2],
+                correctSentence: "にほん",
+                explanation: "にほん = Nhật Bản"
+            }
+        ]
+    },
     test2: {
         name: 'Bài test 2 - Ngày 26-10-2025',
         multipleChoice: [

@@ -319,7 +319,7 @@ export default function JapaneseTestApp() {
         if (section.type === 'fill' ) {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Điền từ vào chỗ trống:</h3>
+                    <h3 className="text-xl font-bold text-gray-800">Điền từ vào chỗ trống để tạo thành từ,câu có nghĩa:</h3>
                     <div className="bg-white p-6 rounded-xl border-2 border-gray-200">
                         <p className="text-3xl font-bold text-center">
                             {q.sentence.split('___').map((part, idx) => (
