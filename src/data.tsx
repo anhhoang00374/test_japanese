@@ -97,6 +97,66 @@ export const ALL_TESTS = {
                 options: ["こえ", "かお", "あお", "て"],
                 correct: 3,
                 explanation: "て nghĩa là tay"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Chào buổi sáng':",
+                options: ["Konnichiwa", "Ohayougozaimasu", "Oyasuminasai", "Konbanwa"],
+                correct: 1,
+                explanation: "Ohayougozaimasu nghĩa là Chào buổi sáng"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Chào buổi chiều':",
+                options: ["Konbanwa", "Konnichiwa", "sayonara", "Ohayougozaimasu"],
+                correct: 1,
+                explanation: "Konnichiwa nghĩa là Chào buổi chiều"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Chào buổi tối':",
+                options: ["Oyasuminasai", "Konbanwa", "Konnichiwa", "Sumimasen"],
+                correct: 1,
+                explanation: "Konbanwa nghĩa là Chào buổi tối"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Rất vui được gặp bạn':",
+                options: ["Hajimemashite", "Arigato gozaimasu", "onegaishimasu", "Dooitashimashite"],
+                correct: 0,
+                explanation: "Hajimemashite nghĩa là Rất vui được gặp bạn"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Vui lòng giúp đỡ':",
+                options: ["Arigato gozaimasu", "onegaishimasu", "Sumimasen", "Dooitashimashite"],
+                correct: 1,
+                explanation: "onegaishimasu nghĩa là Vui lòng giúp đỡ"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Chúc ngủ ngon':",
+                options: ["Ohayougozaimasu", "Konnichiwa", "Oyasuminasai", "Konbanwa"],
+                correct: 2,
+                explanation: "Oyasuminasai nghĩa là Chúc ngủ ngon"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Tạm biệt':",
+                options: ["sayonara", "Sumimasen", "Konnichiwa", "Dooitashimashite"],
+                correct: 0,
+                explanation: "sayonara nghĩa là Tạm biệt"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Cảm ơn':",
+                options: ["Dooitashimashite", "onegaishimasu", "Arigato gozaimasu", "Sumimasen"],
+                correct: 2,
+                explanation: "Arigato gozaimasu nghĩa là Cảm ơn"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Không có chi':",
+                options: ["Sumimasen", "Arigato gozaimasu", "sayonara", "Dooitashimashite"],
+                correct: 3,
+                explanation: "Dooitashimashite nghĩa là Không có chi"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Xin lỗi':",
+                options: ["onegaishimasu", "Dooitashimashite", "Sumimasen", "Arigato gozaimasu"],
+                correct: 2,
+                explanation: "Sumimasen nghĩa là Xin lỗi"
             }
         ],
         matching: [
