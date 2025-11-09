@@ -1,4 +1,158 @@
 export const ALL_TESTS = {
+    test4: {
+        name: 'Bài test 4 - Ngày 09-11-2025',
+        multipleChoice: [
+            { question: "Chọn nghĩa đúng của từ 'lối vào':", options: ["まど", "いりぐち", "ごはん", "かぎ"], correct: 1, explanation: "いりぐち nghĩa là lối vào" },
+            { question: "Chọn nghĩa đúng của từ 'lối ra':", options: ["みず", "でぐち", "かべ", "ぴかぴか"], correct: 1, explanation: "でぐち nghĩa là lối ra" },
+            { question: "Chọn nghĩa đúng của từ 'chói loá':", options: ["ぴかぴか", "おみやげ", "でぐち", "まど"], correct: 0, explanation: "ぴかぴか nghĩa là chói loá" },
+            { question: "Chọn nghĩa đúng của từ 'cửa sổ':", options: ["かべ", "まど", "ごはん", "いりぐち"], correct: 1, explanation: "まど nghĩa là cửa sổ" },
+            { question: "Chọn nghĩa đúng của từ 'bức tường':", options: ["ごはん", "かぎ", "かべ", "みず"], correct: 2, explanation: "かべ nghĩa là bức tường" },
+            { question: "Chọn nghĩa đúng của từ 'chìa khóa':", options: ["かぎ", "ぴかぴか", "おみやげ", "でぐち"], correct: 0, explanation: "かぎ nghĩa là chìa khóa" },
+            { question: "Chọn nghĩa đúng của từ 'nước':", options: ["みず", "まど", "いりぐち", "ごはん"], correct: 0, explanation: "みず nghĩa là nước" },
+            { question: "Chọn nghĩa đúng của từ 'cơm':", options: ["かべ", "おみやげ", "ごはん", "ぴかぴか"], correct: 2, explanation: "ごはん nghĩa là cơm" },
+            { question: "Chọn nghĩa đúng của từ 'quà lưu niệm':", options: ["おみやげ", "かぎ", "みず", "でぐち"], correct: 0, explanation: "おみやげ nghĩa là quà lưu niệm" }
+        ],
+        matching: [
+            {
+                left: ["ぶた", "ばら", "ゆび", "からだ", "かぞく"],
+                right: ["gia đình", "ngón tay", "con lợn", "cơ thể", "hoa hồng"],
+                correctPairs: [
+                    [0, 2],
+                    [1, 4],
+                    [2, 1],
+                    [3, 3],
+                    [4, 0]
+                ],
+                explanation: "ぶた = con lợn, ばら = hoa hồng, ゆび = ngón tay, からだ = cơ thể, かぞく = gia đình"
+            }
+        ]
+        ,
+        typing: [
+            {
+                question: "これはぶたです",
+                placeholder: "Nhập câu có nghĩa 'Đây là con heo'",
+                correct: "これはぶたです",
+                hint: "こ + れ + は + ぶ + た + で + す",
+                explanation: "これはぶたです nghĩa là 'Đây là con heo'"
+            },
+            {
+                question: "それははなです",
+                placeholder: "Nhập câu có nghĩa 'Đó là hoa'",
+                correct: "それははなです",
+                hint: "そ + れ + は + は + な + で + す",
+                explanation: "それははなです nghĩa là 'Đó là hoa'"
+            },
+            {
+                question: "いまなんじですか",
+                placeholder: "Nhập câu có nghĩa 'Bây giờ là mấy giờ?'",
+                correct: "いまなんじですか",
+                hint: "い + ま + な + ん + じ + で + す + か",
+                explanation: "いまなんじですか nghĩa là 'Bây giờ là mấy giờ?'"
+            }
+        ],
+        wordConnect: [
+            {
+                word: "ぼく",
+                options: ["tôi (nam)", "gió", "họa sĩ", "một giờ"],
+                correct: 0,
+                explanation: "ぼく là tôi (nam)"
+            },
+            {
+                word: "がか",
+                options: ["một giờ", "họa sĩ", "màu xanh lá", "nói lưu loát trôi chảy"],
+                correct: 1,
+                explanation: "がか là họa sĩ"
+            },
+            {
+                word: "みどり",
+                options: ["gió", "màu xanh lá", "nói lưu loát trôi chảy", "tôi (nam)"],
+                correct: 1,
+                explanation: "みどり là màu xanh lá"
+            },
+            {
+                word: "いちじ",
+                options: ["một giờ", "họa sĩ", "màu xanh lá", "gió"],
+                correct: 0,
+                explanation: "いちじ là một giờ"
+            },
+            {
+                word: "ぺらぺら",
+                options: ["nói lưu loát trôi chảy", "gió", "một giờ", "họa sĩ"],
+                correct: 0,
+                explanation: "ぺらぺら là nói lưu loát trôi chảy"
+            },
+            {
+                word: "かぜ",
+                options: ["một giờ", "màu xanh lá", "gió", "tôi (nam)"],
+                correct: 2,
+                explanation: "かぜ là gió"
+            }
+        ],
+        fillBlank: [
+            {
+                sentence: "い___な___じですか",
+                blanks: ["ま", "ん"],
+                options: [["ま", "も", "み", "め"], ["ん", "に", "の", "ね"]],
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            },
+            {
+                sentence: "い___く___です",
+                blanks: ["ま", "じ"],
+                options: [["ま", "も", "み", "む"], ["じ", "ち", "ぢ", "し"]],
+                explanation: "いまくじです = Bây giờ là 9 giờ"
+            },
+            {
+                sentence: "あ___は___べです",
+                blanks: ["れ", "か"],
+                options: [["れ", "ね", "め", "せ"], ["か", "が", "さ", "た"]],
+                explanation: "あれはかべです = Kia là bức tường"
+            },
+            {
+                sentence: "こ___は___です",
+                blanks: ["れ", "き"],
+                options: [["れ", "ね", "ろ", "り"], ["き", "ぎ", "し", "ち"]],
+                explanation: "これはきです = Đây là cái cây"
+            },
+            {
+                sentence: "そ___はい___です",
+                blanks: ["れ", "ぬ"],
+                options: [["れ", "ね", "ろ", "り"], ["ぬ", "む", "る", "す"]],
+                explanation: "それはいぬです = Con đó là con chó"
+            }
+        ],
+        sentenceOrder: [
+            {
+                words: ["ず", "み", "は", "こ", "れ", "す", "で"],
+                correct: [3, 4, 2, 1, 0, 6, 5],
+                correctSentence: "これはみずです",
+                explanation: "これはみずです = Đây là nước"
+            },
+            {
+                words: ["た", "ぶ", "は", "す", "そ", "れ", "で"],
+                correct: [4, 5, 2, 1, 0, 6, 3],
+                correctSentence: "それはぶたです",
+                explanation: "それはぶたです = Con đó là con lợn"
+            },
+            {
+                words: ["ん", "な", "い", "じ", "で", "か", "す", "ま"],
+                correct: [2, 7, 1, 0, 3, 4, 6,5 ],
+                correctSentence: "いまなんじですか",
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            },
+            {
+                words: ["で", "よ", "い", "ま", "す", "じ"],
+                correct: [2, 3, 1, 5, 0, 4],
+                correctSentence: "いまよじです",
+                explanation: "いまよじです = Bây giờ là 4 giờ"
+            },
+            {
+                words: ["こ", "ね", "す", "れ", "は", "で", "あ"],
+                correct: [6, 3, 4, 1, 0, 5, 2],
+                correctSentence: "あれはねこです",
+                explanation: "あれはねこです = Kia là con mèo"
+            }
+        ]
+    },
     test3: {
         name: 'Bài test 3 - Ngày 02-11-2025',
         multipleChoice: [

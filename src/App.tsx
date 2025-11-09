@@ -434,7 +434,7 @@ export default function JapaneseTestApp() {
         if (section.type === 'typing') {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Nhập từ vựng:</h3>
+                    <h3 className="text-xl font-bold text-gray-800">Nhập câu bên dưới:</h3>
                     <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
                         <p className="text-3xl font-bold mb-2">{q.question}</p>
                         {/*<p className="text-sm text-gray-600 italic">Gợi ý: {q.hint}</p>*/}
