@@ -1,4 +1,98 @@
 export const ALL_TESTS = {
+    test5: {
+        name: 'Bài test 5 - Ngày 23-11-2025',
+        multipleChoice: [
+            { question: "Chọn nghĩa đúng của từ 'Bút chì':", options: ["えんぴつ", "たんぼ", "まんが", "かんじ"], correct: 0, explanation: "えんぴつ nghĩa là Bút chì" },
+            { question: "Chọn nghĩa đúng của từ 'Ruộng lúa':", options: ["にほんご", "たんぼ", "でんき", "ほんだな"], correct: 1, explanation: "たんぼ nghĩa là Ruộng lúa" },
+            { question: "Chọn nghĩa đúng của từ 'Tiếng Nhật':", options: ["せんたく", "まんが", "にほんご", "しんぶん"], correct: 2, explanation: "にほんご nghĩa là Tiếng Nhật" },
+            { question: "Chọn nghĩa đúng của từ 'Truyện tranh':", options: ["えんぴつ", "でんき", "かんじ", "まんが"], correct: 3, explanation: "まんが nghĩa là Truyện tranh" },
+            { question: "Chọn nghĩa đúng của từ 'Điện':", options: ["でんき", "たんぼ", "ほんだな", "にほんご"], correct: 0, explanation: "でんき nghĩa là Điện" },
+            { question: "Chọn nghĩa đúng của từ 'Việc giặc giũ':", options: ["まんが", "せんたく", "えんぴつ", "しんぶん"], correct: 1, explanation: "せんたく nghĩa là Việc giặc giũ" },
+            { question: "Chọn nghĩa đúng của từ 'Chữ Hán':", options: ["でんき", "たんぼ", "かんじ", "ほんだな"], correct: 2, explanation: "かんじ nghĩa là Chữ Hán" },
+            { question: "Chọn nghĩa đúng của từ 'Kệ sách':", options: ["にほんご", "せんたく", "まんが", "ほんだな"], correct: 3, explanation: "ほんだな nghĩa là Kệ sách" },
+            { question: "Chọn nghĩa đúng của từ 'Báo':", options: ["しんぶん", "えんぴつ", "かんじ", "でんき"], correct: 0, explanation: "しんぶん nghĩa là Báo" }
+        ],
+        matching: [
+            {
+                left: ["さっか", "がっき", "にっき", "けっこん", "ざっし", "いっさい", "きって", "きっぷ", "はっぱ", "しっぽ"],
+                right: ["Cái đuôi", "Nhật ký", "Tác giả", "Vé tàu", "Nhạc cụ", "Con tem", "1 tuổi", "Tạp chí", "Việc kết hôn", "Chiếc lá"],
+                correctPairs: [[0, 2], [1, 4], [2, 1], [3, 8], [4, 7], [5, 6], [6, 5], [7, 3], [8, 9], [9, 0]],
+                explanation: "さっか = Tác giả, がっき = Nhạc cụ, にっき = Nhật ký, けっこん = Việc kết hôn, ざっし = Tạp chí, いっさい = 1 tuổi, きって = Con tem, きっぷ = Vé tàu, はっぱ = Chiếc lá, しっぽ = Cái đuôi"
+            }
+        ]
+        ,
+        typing: [
+            { question: "Tác giả", placeholder: "Nhập từ vựng có nghĩa Tác giả", correct: "さっか", hint: "さっ + か", explanation: "さっか là Tác giả" },
+            { question: "Việc kết hôn", placeholder: "Nhập từ vựng có nghĩa Việc kết hôn", correct: "けっこん", hint: "けっ + こん", explanation: "けっこん là Việc kết hôn" },
+            { question: "1 tuổi", placeholder: "Nhập từ vựng có nghĩa 1 tuổi", correct: "いっさい", hint: "いっ + さい", explanation: "いっさい là 1 tuổi" },
+            { question: "Vé tàu", placeholder: "Nhập từ vựng có nghĩa Vé tàu", correct: "きっぷ", hint: "きっ + ぷ", explanation: "きっぷ là Vé tàu" },
+            { question: "Chiếc lá", placeholder: "Nhập từ vựng có nghĩa Chiếc lá", correct: "はっぱ", hint: "はっ + ぱ", explanation: "はっぱ là Chiếc lá" },
+            { question: "Cái đuôi", placeholder: "Nhập từ vựng có nghĩa Cái đuôi", correct: "しっぽ", hint: "しっ + ぽ", explanation: "しっぽ là Cái đuôi" }
+        ],
+        wordConnect: [
+            { word: "えんぴつ", options: ["empitsu", "enpitsu", "engpitsu"], correct: 0, explanation: "えんぴつ là empitsu" },
+            { word: "たんぼ", options: ["tanbo", "tambo", "tangbo"], correct: 1, explanation: "たんぼ là tambo" },
+            { word: "にほんご", options: ["nihomgo", "nihongo", "nihonggo"], correct: 2, explanation: "にほんご là nihonggo" },
+            { word: "まんが", options: ["mamga", "manga", "mangga"], correct: 2, explanation: "まんが là mangga" },
+            { word: "でんき", options: ["dengki", "denki", "demki"], correct: 0, explanation: "でんき là dengki" },
+            { word: "せんたく", options: ["sengtaku", "sentaku", "semtaku"], correct: 1, explanation: "せんたく là sentaku" },
+            { word: "かんじ", options: ["kamji", "kangji", "kanji"], correct: 2, explanation: "かんじ là kanji" },
+            { word: "ほんだな", options: ["hongdana", "hondana", "homdana"], correct: 1, explanation: "ほんだな là hondana" },
+            { word: "しんぶん", options: ["shimbung", "shinbung", "shimbun"], correct: 0, explanation: "しんぶん là shimbung" }
+        ],
+        fillBlank: [
+            {
+                sentence: "これはが___き___す",
+                blanks: ["っ", "で"],
+                options: [["っ", "ん", "い", "き"], ["で", "だ", "に", "ね"]],
+                explanation: "これはがっきです = Đây là nhạc cụ"
+            },
+            {
+                sentence: "そ___はにっ___です",
+                blanks: ["れ", "き"],
+                options: [["れ", "の", "ん", "と"], ["き", "し", "ち", "り"]],
+                explanation: "それはにっきです = Đó là nhật ký"
+            },
+            {
+                sentence: "あれ___ざっ___です",
+                blanks: ["は", "し"],
+                options: [["は", "が", "を", "に"], ["し", "ち", "き", "り"]],
+                explanation: "あれはざっしです = Kia là tạp chí"
+            },
+            {
+                sentence: "こ___は___ってです",
+                blanks: ["れ", "き"],
+                options: [["れ", "の", "ん", "と"], ["き", "し", "ち", "り"]],
+                explanation: "これはきってです = Đây là con tem"
+            }
+        ],
+        sentenceOrder: [
+            {
+                words: ["で", "ん", "か", "い", "す", "じ", "ま", "な"],
+                correct: [3, 6, 7, 1, 5, 0, 4, 2],
+                correctSentence: "いまなんじですか",
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            },
+            {
+                words: ["す", "じ", "く", "ま", "い", "で"],
+                correct: [4, 3, 2, 1, 5, 0],
+                correctSentence: "いまくじです",
+                explanation: "いまくじです = Bây giờ là 9 giờ"
+            },
+            {
+                words: ["す", "っ", "に", "は", "で", "き", "こ", "れ"],
+                correct: [6, 7, 3, 2, 1, 5, 4, 0],
+                correctSentence: "これはにっきです",
+                explanation: "これはにっきです = Cái này là nhật kí"
+            },
+            {
+                words: ["き", "す", "っ", "で", "そ", "は", "れ", "が"],
+                correct: [4, 6, 5, 7, 2, 0, 3, 1],
+                correctSentence: "それはがっきです",
+                explanation: "それはがっきです = Cái đó là nhạc cụ"
+            }
+        ]
+    },
     test4: {
         name: 'Bài test 4 - Ngày 09-11-2025',
         multipleChoice: [
