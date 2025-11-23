@@ -9,7 +9,7 @@ export default function JapaneseTestApp() {
         { name: 'Chọn đáp án', data: DATA.multipleChoice, type: 'multiple' },
         { name: 'Ghép từ', data: DATA.matching, type: 'matching' },
         { name: 'Nhập từ', data: DATA.typing, type: 'typing' },
-        { name: 'Chọn nghĩa tiếng Việt', data: DATA.wordConnect, type: 'connect' },
+        { name: 'Chọn cách đọc đúng', data: DATA.wordConnect, type: 'connect' },
         { name: 'Điền từ', data: DATA.fillBlank, type: 'fill' },
         { name: 'Sắp xếp câu', data: DATA.sentenceOrder, type: 'order' },
 
@@ -364,7 +364,7 @@ export default function JapaneseTestApp() {
         if (section.type === 'connect') {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Chọn nghĩa đúng cho từ:</h3>
+                    <h3 className="text-xl font-bold text-gray-800">Chọn cách phiên âm romaji đúng cho từ:</h3>
                     <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
                         <p className="text-5xl font-bold">{q.word}</p>
                     </div>
