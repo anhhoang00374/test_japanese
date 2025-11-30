@@ -1,4 +1,201 @@
 export const ALL_TESTS = {
+    test6: {
+        name: 'Bài test 6 - Ngày 30-11-2025',
+        multipleChoice: [
+            {
+                question: "Chọn nghĩa đúng của từ 'mẹ':",
+                options: ["おにいさん", "おかあさん", "せんぷうき", "たいふう"],
+                correct: 1,
+                explanation: "おかあさん nghĩa là mẹ"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'bà':",
+                options: ["おばあさん", "おじいさん", "せんせい", "おかあさん"],
+                correct: 0,
+                explanation: "おばあさん nghĩa là bà"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'anh trai':",
+                options: ["たいふう", "せんぷうき", "おにいさん", "おじいさん"],
+                correct: 2,
+                explanation: "おにいさん nghĩa là anh trai"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'ông':",
+                options: ["おかあさん", "おばあさん", "せんせい", "おじいさん"],
+                correct: 3,
+                explanation: "おじいさん nghĩa là ông"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'bão':",
+                options: ["たいふう", "せんぷうき", "おにいさん", "おばあさん"],
+                correct: 0,
+                explanation: "たいふう nghĩa là bão"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'máy quạt':",
+                options: ["おじいさん", "たいふう", "せんぷうき", "せんせい"],
+                correct: 2,
+                explanation: "せんぷうき nghĩa là máy quạt"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'giáo viên':",
+                options: ["おかあさん", "おにいさん", "せんぷうき", "せんせい"],
+                correct: 3,
+                explanation: "せんせい nghĩa là giáo viên"
+            }
+        ],
+        matching: [
+            {
+                left: ["行ってきます", "いってらっしゃい", "ただいま", "おかえりなさい"],
+                right: ["Bạn đã về đó à( Người ở nhà chào người mới về)", "Tôi đi đây( Người đi ra ngoài chào)", "Bạn đi đi nhé( Người ở trong nhà chào người đi)", "Tôi đã về( Người ở ngoài về chào)"],
+                correctPairs: [[0, 1], [1, 2], [2, 3], [3, 0]],
+                explanation: "行ってきます = Tôi đi đây( Người đi ra ngoài chào), いってらっしゃい = Bạn đi đi nhé( Người ở trong nhà chào người đi), ただいま = Tôi đã về( Người ở ngoài về chào), おかえりなさい = Bạn đã về đó à( Người ở nhà chào người mới về)"
+            }
+        ]
+        ,
+        typing: [
+            {
+                question: "Mẹ",
+                placeholder: "Nhập từ vựng có nghĩa Mẹ",
+                correct: "おかあさん",
+                hint: "お + か + あ + さ + ん",
+                explanation: "おかあさん là Mẹ"
+            },
+            {
+                question: "Bà",
+                placeholder: "Nhập từ vựng có nghĩa Bà",
+                correct: "おばあさん",
+                hint: "お + ば + あ + さ + ん",
+                explanation: "おばあさん là Bà"
+            },
+            {
+                question: "Anh trai",
+                placeholder: "Nhập từ vựng có nghĩa Anh trai",
+                correct: "おにいさん",
+                hint: "お + に + い + さ + ん",
+                explanation: "おにいさん là Anh trai"
+            },
+            {
+                question: "Chị gái",
+                placeholder: "Nhập từ vựng có nghĩa Chị gái",
+                correct: "おねえさん",
+                hint: "お + ね + え + さ + ん",
+                explanation: "おねえさん là Chị gái"
+            },
+            {
+                question: "Bố",
+                placeholder: "Nhập từ vựng có nghĩa Bố",
+                correct: "おとうさん",
+                hint: "お + と + う + さ + ん",
+                explanation: "おとうさん là Bố"
+            },
+            {
+                question: "Em gái",
+                placeholder: "Nhập từ vựng có nghĩa Em gái",
+                correct: "いもうと",
+                hint: "い + も + う + と",
+                explanation: "いもうと là Em gái"
+            },
+            {
+                question: "Em trai",
+                placeholder: "Nhập từ vựng có nghĩa Em trai",
+                correct: "おとうと",
+                hint: "お + と + う + と",
+                explanation: "おとうと là Em trai"
+            }
+        ],
+        wordConnect: [
+            {
+                word: "せいと",
+                options: ["Cái nón", "Học sinh", "Em trai", "Đá lạnh"],
+                correct: 1,
+                explanation: "せいと là Học sinh"
+            },
+            {
+                word: "おねえさん",
+                options: ["Bố", "Em gái", "Chị gái", "Nhiều"],
+                correct: 2,
+                explanation: "おねえさん là Chị gái"
+            },
+            {
+                word: "ぼうし",
+                options: ["Học sinh", "Chị gái", "Em trai", "Cái nón"],
+                correct: 3,
+                explanation: "ぼうし là Cái nón"
+            },
+            {
+                word: "おとうさん",
+                options: ["Bố", "Đá lạnh", "Em gái", "Cái nón"],
+                correct: 0,
+                explanation: "おとうさん là Bố"
+            },
+            {
+                word: "いもうと",
+                options: ["Nhiều", "Chị gái", "Em gái", "Học sinh"],
+                correct: 2,
+                explanation: "いもうと là Em gái"
+            },
+            {
+                word: "おとうと",
+                options: ["Em trai", "Bố", "Đá lạnh", "Cái nón"],
+                correct: 0,
+                explanation: "おとうと là Em trai"
+            },
+            {
+                word: "おおい",
+                options: ["Học sinh", "Em gái", "Chị gái", "Nhiều"],
+                correct: 3,
+                explanation: "おおい là Nhiều"
+            },
+            {
+                word: "こおり",
+                options: ["Đá lạnh", "Em trai", "Cái nón", "Bố"],
+                correct: 0,
+                explanation: "こおり là Đá lạnh"
+            }
+        ],
+        fillBlank: [
+            {
+                sentence: "こ___はせんぷう___ではありありません",
+                blanks: ["れ", "き"],
+                options: [["れ", "の", "ん", "と"], ["き", "し", "ち", "り"]],
+                explanation: "これはせんぷうきではありありません = Cái này không phải là máy quạt"
+            },
+            {
+                sentence: "それは___うしで___ありません",
+                blanks: ["ぼ", "は"],
+                options: [["ぼ", "ほ", "も", "の"], ["は", "が", "を", "に"]],
+                explanation: "それはぼうしではありません = Cái đó không phải là cái nón"
+            },
+            {
+                sentence: "い___なん___ですか",
+                blanks: ["ま", "じ"],
+                options: [["ま", "み", "む", "め"], ["じ", "ぎ", "び", "ぴ"]],
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            }
+        ],
+        sentenceOrder: [
+            {
+                words: ["で", "く", "す", "じ", "ま", "い"],
+                correct: [5, 4, 1, 3, 0, 2],
+                correctSentence: "いまくじです",
+                explanation: "いまくじです = Bây giờ là 9 giờ"
+            },
+            {
+                words: ["す", "し", "う", "こ", "は", "で", "ぼ", "れ"],
+                correct: [3, 7, 4, 6, 2, 1, 5, 0],
+                correctSentence: "これはすいかです",
+                explanation: "これはすいかです = Cái này là dưa hấu"
+            },
+            {
+                words: [ "が", "で", "っ", "き", "せ", "あ", "り", "ま", "は","それは","ん"],
+                correct: [9, 0, 2, 3, 1, 8, 5, 6, 7, 4, 10],
+                correctSentence: "それはがっきではありません",
+                explanation: "きがっきではありません = Cái đó không phải là nhạc cụ"
+            }
+        ]
+    },
     test5: {
         name: 'Bài test 5 - Ngày 23-11-2025',
         multipleChoice: [
