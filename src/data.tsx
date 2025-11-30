@@ -47,10 +47,10 @@ export const ALL_TESTS = {
         ],
         matching: [
             {
-                left: ["行ってきます", "いってらっしゃい", "ただいま", "おかえりなさい"],
+                left: ["いってきます", "いってらっしゃい", "ただいま", "おかえりなさい"],
                 right: ["Bạn đã về đó à( Người ở nhà chào người mới về)", "Tôi đi đây( Người đi ra ngoài chào)", "Bạn đi đi nhé( Người ở trong nhà chào người đi)", "Tôi đã về( Người ở ngoài về chào)"],
                 correctPairs: [[0, 1], [1, 2], [2, 3], [3, 0]],
-                explanation: "行ってきます = Tôi đi đây( Người đi ra ngoài chào), いってらっしゃい = Bạn đi đi nhé( Người ở trong nhà chào người đi), ただいま = Tôi đã về( Người ở ngoài về chào), おかえりなさい = Bạn đã về đó à( Người ở nhà chào người mới về)"
+                explanation: "いってきます = Tôi đi đây( Người đi ra ngoài chào), いってらっしゃい = Bạn đi đi nhé( Người ở trong nhà chào người đi), ただいま = Tôi đã về( Người ở ngoài về chào), おかえりなさい = Bạn đã về đó à( Người ở nhà chào người mới về)"
             }
         ]
         ,
