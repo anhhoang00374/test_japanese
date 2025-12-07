@@ -364,7 +364,7 @@ export default function JapaneseTestApp() {
         if (section.type === 'connect') {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Chọn cách phiên âm romaji đúng cho từ:</h3>
+                    <h3 className="text-xl font-bold text-gray-800">Chọn nghĩa đúng với từ:</h3>
                     <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
                         <p className="text-5xl font-bold">{q.word}</p>
                     </div>
@@ -434,7 +434,7 @@ export default function JapaneseTestApp() {
         if (section.type === 'typing') {
             return (
                 <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Nhập câu bên dưới:</h3>
+                    <h3 className="text-xl font-bold text-gray-800">Nhập từ bên dưới sang tiếng Nhật:</h3>
                     <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl text-center">
                         <p className="text-3xl font-bold mb-2">{q.question}</p>
                         {/*<p className="text-sm text-gray-600 italic">Gợi ý: {q.hint}</p>*/}
