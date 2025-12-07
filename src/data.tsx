@@ -1,4 +1,202 @@
 export const ALL_TESTS = {
+    test7: {
+        name: 'Bài test 7 - Ngày 06-12-2025',
+        multipleChoice: [
+            {
+                question: "Chọn nghĩa đúng của từ 'bức ảnh':",
+                options: ["かしゅ", "しゃしん", "おちゃ", "りょうり"],
+                correct: 1,
+                explanation: "しゃしん nghĩa là bức ảnh"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Ca sĩ':",
+                options: ["ぎゅうにゅう", "きょうかしょ", "かしゅ", "おちゃ"],
+                correct: 2,
+                explanation: "かしゅ nghĩa là Ca sĩ"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Trà':",
+                options: ["おちゃ", "りょうり", "しゃしん", "ちゅうがっこう"],
+                correct: 0,
+                explanation: "おちゃ nghĩa là Trà"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Món ăn':",
+                options: ["かしゅ", "ぎゅうにゅう", "きょうかしょ", "りょうり"],
+                correct: 3,
+                explanation: "りょうり nghĩa là Món ăn"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Sữa bò':",
+                options: ["しゃしん", "ぎゅうにゅう", "おちゃ", "ちゅうがっこう"],
+                correct: 1,
+                explanation: "ぎゅうにゅう nghĩa là Sữa bò"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Trường cấp 2':",
+                options: ["りょうり", "かしゅ", "ちゅうがっこう", "きょうかしょ"],
+                correct: 2,
+                explanation: "ちゅうがっこう nghĩa là Trường cấp 2"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'Sách giáo khoa':",
+                options: ["おちゃ", "しゃしん", "ぎゅうにゅう", "きょうかしょ"],
+                correct: 3,
+                explanation: "きょうかしょ nghĩa là Sách giáo khoa"
+            }
+        ],
+        matching: [
+            {
+                left: ["いってきます", "いってらっしゃい", "ただいま", "おかえりなさい"],
+                right: ["Bạn đã về đó à( Người ở nhà chào người mới về)", "Tôi đi đây( Người đi ra ngoài chào)", "Bạn đi đi nhé( Người ở trong nhà chào người đi)", "Tôi đã về( Người ở ngoài về chào)"],
+                correctPairs: [[0, 1], [1, 2], [2, 3], [3, 0]],
+                explanation: "いってきます = Tôi đi đây( Người đi ra ngoài chào), いってらっしゃい = Bạn đi đi nhé( Người ở trong nhà chào người đi), ただいま = Tôi đã về( Người ở ngoài về chào), おかえりなさい = Bạn đã về đó à( Người ở nhà chào người mới về)"
+            }
+        ]
+        ,
+        typing: [
+            {
+                question: "Ca sĩ",
+                placeholder: "Nhập từ vựng có nghĩa Ca sĩ",
+                correct: "かしゅ",
+                hint: "か + しゅ",
+                explanation: "かしゅ là Ca sĩ"
+            },
+            {
+                question: "Món ăn",
+                placeholder: "Nhập từ vựng có nghĩa Món ăn",
+                correct: "りょうり",
+                hint: "りょ + う + り",
+                explanation: "りょうり là Món ăn"
+            },
+            {
+                question: "Sữa bò",
+                placeholder: "Nhập từ vựng có nghĩa Sữa bò",
+                correct: "ぎゅうにゅう",
+                hint: "ぎゅ + う + にゅ + う",
+                explanation: "ぎゅうにゅう là Sữa bò"
+            },
+            {
+                question: "Trường cấp 2",
+                placeholder: "Nhập từ vựng có nghĩa Trường cấp 2",
+                correct: "ちゅうがっこう",
+                hint: "ちゅ + う + が + っ + こ + う",
+                explanation: "ちゅうがっこう là Trường cấp 2"
+            },
+            {
+                question: "Sách giáo khoa",
+                placeholder: "Nhập từ vựng có nghĩa Sách giáo khoa",
+                correct: "きょうかしょ",
+                hint: "きょ + う + か + しょ",
+                explanation: "きょうかしょ là Sách giáo khoa"
+            },
+            {
+                question: "Thư viện",
+                placeholder: "Nhập từ vựng có nghĩa Thư viện",
+                correct: "としょかん",
+                hint: "と + しょ + か + ん",
+                explanation: "としょかん là Thư viện"
+            },
+            {
+                question: "Búp bê",
+                placeholder: "Nhập từ vựng có nghĩa Búp bê",
+                correct: "にんぎょう",
+                hint: "に + ん + ぎょ + う",
+                explanation: "にんぎょう là Búp bê"
+            },
+            {
+                question: "Bệnh viện",
+                placeholder: "Nhập từ vựng có nghĩa Bệnh viện",
+                correct: "びょういん",
+                hint: "びょ + う + い + ん",
+                explanation: "びょういん là Bệnh viện"
+            }
+        ],
+        wordConnect: [
+            {
+                word: "れんしゅう",
+                options: ["Luyện tập", "Thư viện", "Bệnh viện", "Xe đạp"],
+                correct: 0,
+                explanation: "れんしゅう là Luyện tập"
+            },
+            {
+                word: "としょかん",
+                options: ["Búp bê", "Thư viện", "Con trâu", "Luyện tập"],
+                correct: 1,
+                explanation: "としょかん là Thư viện"
+            },
+            {
+                word: "にんぎょう",
+                options: ["Bệnh viện", "Xe đạp", "Búp bê", "Thư viện"],
+                correct: 2,
+                explanation: "にんぎょう là Búp bê"
+            },
+            {
+                word: "びょういん",
+                options: ["Con trâu", "Luyện tập", "Búp bê", "Bệnh viện"],
+                correct: 3,
+                explanation: "びょういん là Bệnh viện"
+            },
+            {
+                word: "じてんしゃ",
+                options: ["Thư viện", "Xe đạp", "Con trâu", "Bệnh viện"],
+                correct: 1,
+                explanation: "じてんしゃ là Xe đạp"
+            },
+            {
+                word: "すいぎゅう",
+                options: ["Búp bê", "Luyện tập", "Con trâu", "Thư viện"],
+                correct: 2,
+                explanation: "すいぎゅう là Con trâu"
+            }
+        ],
+        fillBlank: [
+            {
+                sentence: "こ___はせんぷう___ではありありません",
+                blanks: ["れ", "き"],
+                options: [["れ", "の", "ん", "と"], ["き", "し", "ち", "り"]],
+                explanation: "これはせんぷうきではありありません = Cái này không phải là máy quạt"
+            },
+            {
+                sentence: "それは___うしで___ありません",
+                blanks: ["ぼ", "は"],
+                options: [["ぼ", "ほ", "も", "の"], ["は", "が", "を", "に"]],
+                explanation: "それはぼうしではありません = Cái đó không phải là cái nón"
+            },
+            {
+                sentence: "い___なん___ですか",
+                blanks: ["ま", "じ"],
+                options: [["ま", "み", "む", "め"], ["じ", "ぎ", "び", "ぴ"]],
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            }
+        ],
+        sentenceOrder: [
+            {
+                words: ["ん", "で", "い", "す", "じ", "ま", "か", "な"],
+                correct: [2, 5, 7, 0, 4, 1, 3, 6],
+                correctSentence: "いまなんじですか",
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            },
+            {
+                words: ["す", "ご", "く", "で", "じ", "ん", "ふ", "ま", "い"],
+                correct: [8, 7, 2, 4, 1, 6, 5, 3, 0],
+                correctSentence: "いまくじごふんです",
+                explanation: "いまくじごふんです = Bây giờ là 9 giờ 5 phút"
+            },
+            {
+                words: ["ん", "す", "ご", "ふ", "じ", "い", "じゅ", "う", "ま", "よ", "で"],
+                correct: [5, 8, 9, 4, 6, 7, 2, 3, 0, 10,1],
+                correctSentence: "いまよじじゅうごふんです",
+                explanation: "いまよじじゅうごふんです = Bây giờ là 4 giờ 15 phút"
+            },
+            {
+                words: ["ぷ", "ん", "じ", "は", "ま", "い", "じゅ", "っ", "す", "で", "ち", "に"],
+                correct: [5, 4, 3, 10, 2, 11, 6, 7, 0, 1, 9, 8],
+                correctSentence: "いまはちじにじゅっぷんです",
+                explanation: "いまはちじにじゅっぷんです = Bây giờ là 8 giờ 10 phút"
+            }
+        ]
+    },
     test6: {
         name: 'Bài test 6 - Ngày 30-11-2025',
         multipleChoice: [

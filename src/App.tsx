@@ -7,10 +7,10 @@ export default function JapaneseTestApp() {
     const DATA = ALL_TESTS[selectedTest];
     const sections = [
         { name: 'Chọn đáp án', data: DATA.multipleChoice, type: 'multiple' },
-        { name: 'Ghép từ', data: DATA.matching, type: 'matching' },
+        // { name: 'Ghép từ', data: DATA.matching, type: 'matching' },
         { name: 'Nhập từ', data: DATA.typing, type: 'typing' },
         { name: 'Chọn cách đọc đúng', data: DATA.wordConnect, type: 'connect' },
-        { name: 'Điền từ', data: DATA.fillBlank, type: 'fill' },
+        // { name: 'Điền từ', data: DATA.fillBlank, type: 'fill' },
         { name: 'Sắp xếp câu', data: DATA.sentenceOrder, type: 'order' },
 
     ];
