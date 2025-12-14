@@ -1,4 +1,452 @@
 export const ALL_TESTS = {
+    test8: {
+        name: 'Bài test 8 - Ngày 14-12-2025',
+        multipleChoice: [
+            { question: "Chọn nghĩa đúng của từ 'hoa anh đào':", options: ["さくら", "ばら", "らん", "あり"], correct: 0, explanation: "さくら nghĩa là hoa anh đào" },
+            { question: "Chọn nghĩa đúng của từ 'con kiến':", options: ["さる", "あり", "ぶた", "がか"], correct: 1, explanation: "あり nghĩa là con kiến" },
+            { question: "Chọn nghĩa đúng của từ 'con khỉ':", options: ["ぶた", "あり", "さる", "がか"], correct: 2, explanation: "さる nghĩa là con khỉ" },
+            { question: "Chọn nghĩa đúng của từ 'bạn trai':", options: ["ぼく", "わたし", "かぞく", "かれ"], correct: 3, explanation: "かれ nghĩa là bạn trai" },
+            { question: "Chọn nghĩa đúng của từ 'buổi trưa':", options: ["ひる", "いちじ", "はれ", "かぜ"], correct: 0, explanation: "ひる nghĩa là buổi trưa" },
+            { question: "Chọn nghĩa đúng của từ 'tiệm thuốc':", options: ["やおや", "くすりや", "たんぼ", "いりぐち"], correct: 1, explanation: "くすりや nghĩa là tiệm thuốc" },
+            { question: "Chọn nghĩa đúng của từ 'màu trắng':", options: ["くろ", "みどり", "しろ", "かべ"], correct: 2, explanation: "しろ nghĩa là màu trắng" },
+            { question: "Chọn nghĩa đúng của từ 'màu đen':", options: ["みどり", "しろ", "まど", "くろ"], correct: 3, explanation: "くろ nghĩa là màu đen" },
+            { question: "Chọn nghĩa đúng của từ 'đơn giản':", options: ["かんたん", "ぺらぺら", "ぴかぴか", "かぜ"], correct: 0, explanation: "かんたん nghĩa là đơn giản" },
+            { question: "Chọn nghĩa đúng của từ 'con sông':", options: ["みず", "かわ", "たんぼ", "やま"], correct: 1, explanation: "かわ nghĩa là con sông" },
+            { question: "Chọn nghĩa đúng của từ 'tôi':", options: ["かれ", "ぼく", "わたし", "かぞく"], correct: 2, explanation: "わたし nghĩa là tôi" },
+            { question: "Chọn nghĩa đúng của từ 'tiệm rau':", options: ["くすりや", "いりぐち", "でぐち", "やおや"], correct: 3, explanation: "やおや nghĩa là tiệm rau" },
+            { question: "Chọn nghĩa đúng của từ 'Nhật Bản':", options: ["にほん", "にほんご", "まんが", "がか"], correct: 0, explanation: "にほん nghĩa là Nhật Bản" },
+            { question: "Chọn nghĩa đúng của từ 'nắng':", options: ["かぜ", "はれ", "みず", "ひる"], correct: 1, explanation: "はれ nghĩa là nắng" },
+            { question: "Chọn nghĩa đúng của từ 'hoa lan':", options: ["ばら", "さくら", "らん", "みどり"], correct: 2, explanation: "らん nghĩa là hoa lan" },
+            { question: "Chọn nghĩa đúng của từ 'lối vào':", options: ["でぐち", "まど", "かべ", "いりぐち"], correct: 3, explanation: "いりぐち nghĩa là lối vào" },
+            { question: "Chọn nghĩa đúng của từ 'lối ra':", options: ["でぐち", "いりぐち", "まど", "かぎ"], correct: 0, explanation: "でぐち nghĩa là lối ra" },
+            { question: "Chọn nghĩa đúng của từ 'chói loá':", options: ["かんたん", "ぴかぴか", "ぺらぺら", "はれ"], correct: 1, explanation: "ぴかぴか nghĩa là chói loá" },
+            { question: "Chọn nghĩa đúng của từ 'cửa sổ':", options: ["かべ", "かぎ", "まど", "いりぐち"], correct: 2, explanation: "まど nghĩa là cửa sổ" },
+            { question: "Chọn nghĩa đúng của từ 'bức tường':", options: ["まど", "でぐち", "いりぐち", "かべ"], correct: 3, explanation: "かべ nghĩa là bức tường" },
+            { question: "Chọn nghĩa đúng của từ 'chìa khóa':", options: ["かぎ", "まど", "かべ", "でぐち"], correct: 0, explanation: "かぎ nghĩa là chìa khóa" },
+            { question: "Chọn nghĩa đúng của từ 'nước':", options: ["かわ", "みず", "ごはん", "はれ"], correct: 1, explanation: "みず nghĩa là nước" },
+            { question: "Chọn nghĩa đúng của từ 'cơm':", options: ["みず", "たんぼ", "ごはん", "おみやげ"], correct: 2, explanation: "ごはん nghĩa là cơm" },
+            { question: "Chọn nghĩa đúng của từ 'quà lưu niệm':", options: ["ごはん", "みず", "かぎ", "おみやげ"], correct: 3, explanation: "おみやげ nghĩa là quà lưu niệm" },
+            { question: "Chọn nghĩa đúng của từ 'con lợn':", options: ["ぶた", "さる", "あり", "がか"], correct: 0, explanation: "ぶた nghĩa là con lợn" },
+            { question: "Chọn nghĩa đúng của từ 'hoa hồng':", options: ["さくら", "ばら", "らん", "みどり"], correct: 1, explanation: "ばら nghĩa là hoa hồng" },
+            { question: "Chọn nghĩa đúng của từ 'ngón tay':", options: ["からだ", "かぞく", "ゆび", "がか"], correct: 2, explanation: "ゆび nghĩa là ngón tay" },
+            { question: "Chọn nghĩa đúng của từ 'cơ thể':", options: ["ゆび", "かぞく", "ぼく", "からだ"], correct: 3, explanation: "からだ nghĩa là cơ thể" },
+            { question: "Chọn nghĩa đúng của từ 'gia đình':", options: ["かぞく", "わたし", "かれ", "ぼく"], correct: 0, explanation: "かぞく nghĩa là gia đình" },
+            { question: "Chọn nghĩa đúng của từ 'tôi (nam)':", options: ["わたし", "ぼく", "かれ", "かぞく"], correct: 1, explanation: "ぼく nghĩa là tôi (nam)" },
+            { question: "Chọn nghĩa đúng của từ 'họa sĩ':", options: ["ぶた", "さる", "がか", "あり"], correct: 2, explanation: "がか nghĩa là họa sĩ" },
+            { question: "Chọn nghĩa đúng của từ 'màu xanh lá':", options: ["しろ", "くろ", "ばら", "みどり"], correct: 3, explanation: "みどり nghĩa là màu xanh lá" },
+            { question: "Chọn nghĩa đúng của từ 'một giờ':", options: ["いちじ", "ひる", "はれ", "かぜ"], correct: 0, explanation: "いちじ nghĩa là một giờ" },
+            { question: "Chọn nghĩa đúng của từ 'nói lưu loát, trôi chảy':", options: ["かんたん", "ぺらぺら", "ぴかぴか", "はれ"], correct: 1, explanation: "ぺらぺら nghĩa là nói lưu loát, trôi chảy" },
+            { question: "Chọn nghĩa đúng của từ 'gió':", options: ["はれ", "みず", "かぜ", "かわ"], correct: 2, explanation: "かぜ nghĩa là gió" },
+            { question: "Chọn nghĩa đúng của từ 'Bút chì':", options: ["かぎ", "まど", "でんき", "えんぴつ"], correct: 3, explanation: "えんぴつ nghĩa là Bút chì" },
+            { question: "Chọn nghĩa đúng của từ 'Ruộng lúa':", options: ["たんぼ", "かわ", "ごはん", "やおや"], correct: 0, explanation: "たんぼ nghĩa là Ruộng lúa" },
+            { question: "Chọn nghĩa đúng của từ 'Tiếng Nhật':", options: ["まんが", "にほんご", "にほん", "がか"], correct: 1, explanation: "にほんご nghĩa là Tiếng Nhật" },
+            { question: "Chọn nghĩa đúng của từ 'Truyện tranh':", options: ["にほんご", "でんき", "まんが", "えんぴつ"], correct: 2, explanation: "まんが nghĩa là Truyện tranh" },
+            { question: "Chọn nghĩa đúng của từ 'Điện':", options: ["えんぴつ", "かぎ", "まど", "でんき"], correct: 3, explanation: "でんき nghĩa là Điện" },
+            { question: "Chọn nghĩa đúng của từ 'Thứ 2':", options: ["かようび", "げつようび", "すいようび", "きんようび"], correct: 1, explanation: "げつようび nghĩa là Thứ 2" },
+            { question: "Chọn nghĩa đúng của từ 'Thứ 3':", options: ["かようび", "どようび", "もくようび", "にちようび"], correct: 0, explanation: "かようび nghĩa là Thứ 3" },
+            { question: "Chọn nghĩa đúng của từ 'Thứ 4':", options: ["げつようび", "きんようび", "すいようび", "きのう"], correct: 2, explanation: "すいようび nghĩa là Thứ 4" },
+            { question: "Chọn nghĩa đúng của từ 'Thứ 5':", options: ["どようび", "もくようび", "にちようび", "かようび"], correct: 1, explanation: "もくようび nghĩa là Thứ 5" },
+            { question: "Chọn nghĩa đúng của từ 'Thứ 6':", options: ["きんようび", "げつようび", "すいようび", "あした"], correct: 0, explanation: "きんようび nghĩa là Thứ 6" },
+            { question: "Chọn nghĩa đúng của từ 'Thứ 7':", options: ["きょう", "もくようび", "どようび", "かようび"], correct: 2, explanation: "どようび nghĩa là Thứ 7" },
+            { question: "Chọn nghĩa đúng của từ 'Chủ nhật':", options: ["げつようび", "にちようび", "きんようび", "どようび"], correct: 1, explanation: "にちようび nghĩa là Chủ nhật" },
+            { question: "Chọn nghĩa đúng của từ 'Hôm qua':", options: ["きのう", "きょう", "あした", "すいようび"], correct: 0, explanation: "きのう nghĩa là Hôm qua" },
+            { question: "Chọn nghĩa đúng của từ 'Hôm nay':", options: ["あした", "きのう", "きょう", "もくようび"], correct: 2, explanation: "きょう nghĩa là Hôm nay" },
+            { question: "Chọn nghĩa đúng của từ 'Ngày mai':", options: ["きんようび", "きょう", "きのう", "あした"], correct: 3, explanation: "あした nghĩa là Ngày mai" }
+        ],
+        matching: [{
+            left: ["おはようございます", "こんにちは", "こんばんは", "はじめまして", "おねがいします", "おやすみなさい", "さよなら", "ありがとうございました", "どういたしまして", "すみません", "もういちどおねがいします", "いただきます", "ごちそうさまでした", "いってらっしゃい", "いってきます", "ただいま", "おかえりなさい", "どうぞ", "おじゃまします", "しつれいします"],
+            right: ["Xin mời", "Chào buổi sáng", "Tạm biệt", "Vui lòng giúp đỡ", "Chúc ngủ ngon", "Cảm ơn", "Mừng bạn đã về", "Chào buổi chiều", "Xin lỗi", "Tôi xin phép", "Rất vui được gặp bạn", "Không có chi", "Cảm ơn sau bữa ăn", "Vui lòng nói lại lần nữa", "Tôi đã về đây", "Chào buổi tối", "Bạn đi nhé", "Tôi đi nhé", "Cảm ơn trước bữa ăn( mời ăn)", "Xin phép làm phiền"],
+            correctPairs: [[0, 1], [1, 7], [2, 15], [3, 10], [4, 3], [5, 4], [6, 2], [7, 5], [8, 11], [9, 8], [10, 13], [11, 18], [12, 12], [13, 16], [14, 17], [15, 14], [16, 6], [17, 0], [18, 19], [19, 9]],
+            explanation: "おはようございます = Chào buổi sáng, こんにちは = Chào buổi chiều, こんばんは = Chào buổi tối, はじめまして = Rất vui được gặp bạn, おねがいします = Vui lòng giúp đỡ, おやすみなさい = Chúc ngủ ngon, さよなら = Tạm biệt, ありがとうございました = Cảm ơn, どういたしまして = Không có chi, すみません = Xin lỗi, もういちどおねがいします = Vui lòng nói lại lần nữa, いただきます = Cảm ơn trước bữa ăn( mời ăn), ごちそうさまでした = Cảm ơn sau bữa ăn, いってらっしゃい = Bạn đi nhé, いってきます = Tôi đi nhé, ただいま = Tôi đã về đây, おかえりなさい = Mừng bạn đã về, どうぞ = Xin mời, おじゃまします = Xin phép làm phiền, しつれいします = Tôi xin phép"
+        }]
+        ,
+        typing: [
+            {
+                question: "21",
+                placeholder: "Nhập từ vựng có nghĩa 21",
+                correct: "にじゅういち",
+                hint: "に + じゅう + いち",
+                explanation: "にじゅういち là 21"
+            },
+            {
+                question: "92",
+                placeholder: "Nhập từ vựng có nghĩa 92",
+                correct: "きゅうじゅうに",
+                hint: "きゅう + じゅう + に",
+                explanation: "きゅうじゅうに là 92"
+            },
+            {
+                question: "83",
+                placeholder: "Nhập từ vựng có nghĩa 83",
+                correct: "はちじゅうさん",
+                hint: "はち + じゅう + さん",
+                explanation: "はちじゅうさん là 83"
+            },
+            {
+                question: "14",
+                placeholder: "Nhập từ vựng có nghĩa 14",
+                correct: "じゅうよん",
+                hint: "じゅう + よん",
+                explanation: "じゅうよん là 14"
+            },
+            {
+                question: "43",
+                placeholder: "Nhập từ vựng có nghĩa 43",
+                correct: "よんじゅうさん",
+                hint: "よん + じゅう + さん",
+                explanation: "よんじゅうさん là 43"
+            },
+            {
+                question: "76",
+                placeholder: "Nhập từ vựng có nghĩa 76",
+                correct: "ななじゅうろく",
+                hint: "なな + じゅう + ろく",
+                explanation: "ななじゅうろく là 76"
+            },
+            {
+                question: "35",
+                placeholder: "Nhập từ vựng có nghĩa 35",
+                correct: "さんじゅうご",
+                hint: "さん + じゅう + ご",
+                explanation: "さんじゅうご là 35"
+            },
+            {
+                question: "59",
+                placeholder: "Nhập từ vựng có nghĩa 59",
+                correct: "ごじゅうきゅう",
+                hint: "ご + じゅう + きゅう",
+                explanation: "ごじゅうきゅう là 59"
+            },
+            {
+                question: "67",
+                placeholder: "Nhập từ vựng có nghĩa 67",
+                correct: "ろくじゅうなな",
+                hint: "ろく + じゅう + なな",
+                explanation: "ろくじゅうなな là 67"
+            },
+            {
+                question: "28",
+                placeholder: "Nhập từ vựng có nghĩa 28",
+                correct: "にじゅうはち",
+                hint: "に + じゅう + はち",
+                explanation: "にじゅうはち là 28"
+            },
+            {
+                question: "81",
+                placeholder: "Nhập từ vựng có nghĩa 81",
+                correct: "はちじゅういち",
+                hint: "はち + じゅう + いち",
+                explanation: "はちじゅういち là 81"
+            },
+            {
+                question: "13",
+                placeholder: "Nhập từ vựng có nghĩa 13",
+                correct: "じゅうさん",
+                hint: "じゅう + さん",
+                explanation: "じゅうさん là 13"
+            }
+        ],
+        wordConnect: [
+            {
+                word: "せんたく",
+                options: ["Việc giặc giũ", "Kệ sách", "Tạp chí", "máy quạt"],
+                correct: 0,
+                explanation: "せんたく là Việc giặc giũ"
+            },
+            {
+                word: "かんじ",
+                options: ["Báo", "Chữ Hán", "Nhạc cụ", "bão"],
+                correct: 1,
+                explanation: "かんじ là Chữ Hán"
+            },
+            {
+                word: "ほんだな",
+                options: ["Nhật ký", "Việc kết hôn", "Kệ sách", "Con tem"],
+                correct: 2,
+                explanation: "ほんだな là Kệ sách"
+            },
+            {
+                word: "しんぶん",
+                options: ["Tác giả", "mẹ", "học sinh", "Báo"],
+                correct: 3,
+                explanation: "しんぶん là Báo"
+            },
+            {
+                word: "さっか",
+                options: ["Tác giả", "Vé tàu", "bà", "cái nón"],
+                correct: 0,
+                explanation: "さっか là Tác giả"
+            },
+            {
+                word: "がっき",
+                options: ["Chiếc lá", "Nhạc cụ", "ông", "em gái"],
+                correct: 1,
+                explanation: "がっき là Nhạc cụ"
+            },
+            {
+                word: "にっき",
+                options: ["giáo viên", "anh trai", "Nhật ký", "đá lạnh"],
+                correct: 2,
+                explanation: "にっき là Nhật ký"
+            },
+            {
+                word: "けっこん",
+                options: ["Cái đuôi", "bố", "nhiều", "Việc kết hôn"],
+                correct: 3,
+                explanation: "けっこん là Việc kết hôn"
+            },
+            {
+                word: "ざっし",
+                options: ["Tạp chí", "bức ảnh", "Ca sĩ", "Trà"],
+                correct: 0,
+                explanation: "ざっし là Tạp chí"
+            },
+            {
+                word: "いっさい",
+                options: ["chị gái", "1 tuổi", "Món ăn", "Sữa bò"],
+                correct: 1,
+                explanation: "いっさい là 1 tuổi"
+            },
+            {
+                word: "きって",
+                options: ["em trai", "Trường cấp 2", "Con tem", "Sách giáo khoa"],
+                correct: 2,
+                explanation: "きって là Con tem"
+            },
+            {
+                word: "きっぷ",
+                options: ["Luyện tập", "Thư viện", "Búp bê", "Vé tàu"],
+                correct: 3,
+                explanation: "きっぷ là Vé tàu"
+            },
+            {
+                word: "はっぱ",
+                options: ["Chiếc lá", "Bệnh viện", "Xe đạp", "Con trâu"],
+                correct: 0,
+                explanation: "はっぱ là Chiếc lá"
+            },
+            {
+                word: "しっぽ",
+                options: ["Việc giặc giũ", "Cái đuôi", "Chữ Hán", "Kệ sách"],
+                correct: 1,
+                explanation: "しっぽ là Cái đuôi"
+            },
+            {
+                word: "おかあさん",
+                options: ["Báo", "Tác giả", "mẹ", "Nhạc cụ"],
+                correct: 2,
+                explanation: "おかあさん là mẹ"
+            },
+            {
+                word: "おばあさん",
+                options: ["Nhật ký", "Việc kết hôn", "Tạp chí", "bà"],
+                correct: 3,
+                explanation: "おばあさん là bà"
+            },
+            {
+                word: "おにいさん",
+                options: ["anh trai", "1 tuổi", "Con tem", "Vé tàu"],
+                correct: 0,
+                explanation: "おにいさん là anh trai"
+            },
+            {
+                word: "おじいさん",
+                options: ["Chiếc lá", "ông", "Cái đuôi", "mẹ"],
+                correct: 1,
+                explanation: "おじいさん là ông"
+            },
+            {
+                word: "たいふう",
+                options: ["bà", "anh trai", "bão", "máy quạt"],
+                correct: 2,
+                explanation: "たいふう là bão"
+            },
+            {
+                word: "せんぷうき",
+                options: ["giáo viên", "học sinh", "chị gái", "máy quạt"],
+                correct: 3,
+                explanation: "せんぷうき là máy quạt"
+            },
+            {
+                word: "せんせい",
+                options: ["giáo viên", "cái nón", "bố", "em gái"],
+                correct: 0,
+                explanation: "せんせい là giáo viên"
+            },
+            {
+                word: "せいと",
+                options: ["em trai", "học sinh", "nhiều", "đá lạnh"],
+                correct: 1,
+                explanation: "せいと là học sinh"
+            },
+            {
+                word: "おねえさん",
+                options: ["bức ảnh", "Ca sĩ", "chị gái", "Trà"],
+                correct: 2,
+                explanation: "おねえさん là chị gái"
+            },
+            {
+                word: "ぼうし",
+                options: ["Món ăn", "Sữa bò", "Trường cấp 2", "cái nón"],
+                correct: 3,
+                explanation: "ぼうし là cái nón"
+            },
+            {
+                word: "おとうさん",
+                options: ["bố", "Sách giáo khoa", "Luyện tập", "Thư viện"],
+                correct: 0,
+                explanation: "おとうさん là bố"
+            },
+            {
+                word: "いもうと",
+                options: ["Búp bê", "em gái", "Bệnh viện", "Xe đạp"],
+                correct: 1,
+                explanation: "いもうと là em gái"
+            },
+            {
+                word: "おとうと",
+                options: ["Con trâu", "Việc giặc giũ", "em trai", "Chữ Hán"],
+                correct: 2,
+                explanation: "おとうと là em trai"
+            },
+            {
+                word: "おおい",
+                options: ["Kệ sách", "Báo", "Tác giả", "nhiều"],
+                correct: 3,
+                explanation: "おおい là nhiều"
+            },
+            {
+                word: "こおり",
+                options: ["đá lạnh", "Nhạc cụ", "Nhật ký", "Việc kết hôn"],
+                correct: 0,
+                explanation: "こおり là đá lạnh"
+            },
+            {
+                word: "しゃしん",
+                options: ["Tạp chí", "bức ảnh", "1 tuổi", "Con tem"],
+                correct: 1,
+                explanation: "しゃしん là bức ảnh"
+            },
+            {
+                word: "かしゅ",
+                options: ["Vé tàu", "Chiếc lá", "Ca sĩ", "Cái đuôi"],
+                correct: 2,
+                explanation: "かしゅ là Ca sĩ"
+            },
+            {
+                word: "おちゃ",
+                options: ["mẹ", "bà", "anh trai", "Trà"],
+                correct: 3,
+                explanation: "おちゃ là Trà"
+            },
+            {
+                word: "りょうり",
+                options: ["Món ăn", "ông", "bão", "máy quạt"],
+                correct: 0,
+                explanation: "りょうり là Món ăn"
+            },
+            {
+                word: "ぎゅうにゅう",
+                options: ["giáo viên", "Sữa bò", "học sinh", "chị gái"],
+                correct: 1,
+                explanation: "ぎゅうにゅう là Sữa bò"
+            },
+            {
+                word: "ちゅうがっこう",
+                options: ["cái nón", "bố", "Trường cấp 2", "em gái"],
+                correct: 2,
+                explanation: "ちゅうがっこう là Trường cấp 2"
+            },
+            {
+                word: "きょうかしょ",
+                options: ["em trai", "nhiều", "đá lạnh", "Sách giáo khoa"],
+                correct: 3,
+                explanation: "きょうかしょ là Sách giáo khoa"
+            },
+            {
+                word: "れんしゅう",
+                options: ["Luyện tập", "bức ảnh", "Ca sĩ", "Trà"],
+                correct: 0,
+                explanation: "れんしゅう là Luyện tập"
+            },
+            {
+                word: "としょかん",
+                options: ["Món ăn", "Thư viện", "Sữa bò", "Trường cấp 2"],
+                correct: 1,
+                explanation: "としょかん là Thư viện"
+            },
+            {
+                word: "にんぎょう",
+                options: ["Sách giáo khoa", "Luyện tập", "Búp bê", "Bệnh viện"],
+                correct: 2,
+                explanation: "にんぎょう là Búp bê"
+            },
+            {
+                word: "びょういん",
+                options: ["Xe đạp", "Con trâu", "Việc giặc giũ", "Bệnh viện"],
+                correct: 3,
+                explanation: "びょういん là Bệnh viện"
+            },
+            {
+                word: "じてんしゃ",
+                options: ["Xe đạp", "Chữ Hán", "Kệ sách", "Báo"],
+                correct: 0,
+                explanation: "じてんしゃ là Xe đạp"
+            },
+            {
+                word: "すいぎゅう",
+                options: ["Tác giả", "Con trâu", "Nhạc cụ", "Nhật ký"],
+                correct: 1,
+                explanation: "すいぎゅう là Con trâu"
+            }
+        ],
+        fillBlank: [
+            {
+                sentence: "こ___はせんぷう___ではありありません",
+                blanks: ["れ", "き"],
+                options: [["れ", "の", "ん", "と"], ["き", "し", "ち", "り"]],
+                explanation: "これはせんぷうきではありありません = Cái này không phải là máy quạt"
+            },
+            {
+                sentence: "それは___うしで___ありません",
+                blanks: ["ぼ", "は"],
+                options: [["ぼ", "ほ", "も", "の"], ["は", "が", "を", "に"]],
+                explanation: "それはぼうしではありません = Cái đó không phải là cái nón"
+            },
+            {
+                sentence: "い___なん___ですか",
+                blanks: ["ま", "じ"],
+                options: [["ま", "み", "む", "め"], ["じ", "ぎ", "び", "ぴ"]],
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            }
+        ],
+        sentenceOrder: [
+            {
+                words: ["ん", "で", "い", "す", "じ", "ま", "か", "な"],
+                correct: [2, 5, 7, 0, 4, 1, 3, 6],
+                correctSentence: "いまなんじですか",
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            },
+            {
+                words: ["す", "ご", "く", "で", "じ", "ん", "ふ", "ま", "い"],
+                correct: [8, 7, 2, 4, 1, 6, 5, 3, 0],
+                correctSentence: "いまくじごふんです",
+                explanation: "いまくじごふんです = Bây giờ là 9 giờ 5 phút"
+            },
+            {
+                words: ["ん", "す", "ご", "ふ", "じ", "い", "じゅ", "う", "ま", "よ", "で"],
+                correct: [5, 8, 9, 4, 6, 7, 2, 3, 0, 10,1],
+                correctSentence: "いまよじじゅうごふんです",
+                explanation: "いまよじじゅうごふんです = Bây giờ là 4 giờ 15 phút"
+            },
+            {
+                words: ["ぷ", "ん", "じ", "は", "ま", "い", "じゅ", "っ", "す", "で", "ち", "に"],
+                correct: [5, 4, 3, 10, 2, 11, 6, 7, 0, 1, 9, 8],
+                correctSentence: "いまはちじにじゅっぷんです",
+                explanation: "いまはちじにじゅっぷんです = Bây giờ là 8 giờ 10 phút"
+            }
+        ]
+    },
     test7: {
         name: 'Bài test 7 - Ngày 06-12-2025',
         multipleChoice: [
