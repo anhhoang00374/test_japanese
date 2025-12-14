@@ -25,7 +25,7 @@ export const ALL_TESTS = {
             { question: "Chọn nghĩa đúng của từ 'chìa khóa':", options: ["かぎ", "まど", "かべ", "でぐち"], correct: 0, explanation: "かぎ nghĩa là chìa khóa" },
             { question: "Chọn nghĩa đúng của từ 'nước':", options: ["かわ", "みず", "ごはん", "はれ"], correct: 1, explanation: "みず nghĩa là nước" },
             { question: "Chọn nghĩa đúng của từ 'cơm':", options: ["みず", "たんぼ", "ごはん", "おみやげ"], correct: 2, explanation: "ごはん nghĩa là cơm" },
-            { question: "Chọn nghĩa đúng của từ 'quà lưu niệm':", options: ["ごはん", "みず", "かぎ", "おみやげ"], correct: 3, explanation: "おみやげ nghĩa là quà lưu niệm" },
+            { question: "Chọn nghĩa đúng của từ 'đặc sản':", options: ["ごはん", "みず", "かぎ", "おみやげ"], correct: 3, explanation: "おみやげ nghĩa là đặc sản" },
             { question: "Chọn nghĩa đúng của từ 'con lợn':", options: ["ぶた", "さる", "あり", "がか"], correct: 0, explanation: "ぶた nghĩa là con lợn" },
             { question: "Chọn nghĩa đúng của từ 'hoa hồng':", options: ["さくら", "ばら", "らん", "みどり"], correct: 1, explanation: "ばら nghĩa là hoa hồng" },
             { question: "Chọn nghĩa đúng của từ 'ngón tay':", options: ["からだ", "かぞく", "ゆび", "がか"], correct: 2, explanation: "ゆび nghĩa là ngón tay" },
@@ -947,7 +947,7 @@ export const ALL_TESTS = {
             { question: "Chọn nghĩa đúng của từ 'chìa khóa':", options: ["かぎ", "ぴかぴか", "おみやげ", "でぐち"], correct: 0, explanation: "かぎ nghĩa là chìa khóa" },
             { question: "Chọn nghĩa đúng của từ 'nước':", options: ["みず", "まど", "いりぐち", "ごはん"], correct: 0, explanation: "みず nghĩa là nước" },
             { question: "Chọn nghĩa đúng của từ 'cơm':", options: ["かべ", "おみやげ", "ごはん", "ぴかぴか"], correct: 2, explanation: "ごはん nghĩa là cơm" },
-            { question: "Chọn nghĩa đúng của từ 'quà lưu niệm':", options: ["おみやげ", "かぎ", "みず", "でぐち"], correct: 0, explanation: "おみやげ nghĩa là quà lưu niệm" }
+            { question: "Chọn nghĩa đúng của từ 'đặc sản':", options: ["おみやげ", "かぎ", "みず", "でぐち"], correct: 0, explanation: "おみやげ nghĩa là đặc sản" }
         ],
         matching: [
             {
