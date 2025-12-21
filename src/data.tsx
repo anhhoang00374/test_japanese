@@ -1,4 +1,267 @@
 export const ALL_TESTS = {
+    test9: {
+        name: 'Bài test 9 - Ngày 21-12-2025',
+        multipleChoice: [
+            {
+                question: "Chọn nghĩa đúng của từ 'あ':",
+                options: ["ア", "イ", "ウ", "エ"],
+                correct: 0,
+                explanation: "ア nghĩa là あ"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'い':",
+                options: ["ウ", "イ", "オ", "エ"],
+                correct: 1,
+                explanation: "イ nghĩa là い"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'う':",
+                options: ["イ", "エ", "ウ", "ア"],
+                correct: 2,
+                explanation: "ウ nghĩa là う"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'え':",
+                options: ["ア", "オ", "イ", "エ"],
+                correct: 3,
+                explanation: "エ nghĩa là え"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'お':",
+                options: ["イ", "ウ", "エ", "オ"],
+                correct: 3,
+                explanation: "オ nghĩa là お"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'か':",
+                options: ["カ", "キ", "ク", "ケ"],
+                correct: 0,
+                explanation: "カ nghĩa là か"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'き':",
+                options: ["ク", "キ", "コ", "ケ"],
+                correct: 1,
+                explanation: "キ nghĩa là き"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'く':",
+                options: ["キ", "ケ", "ク", "カ"],
+                correct: 2,
+                explanation: "ク nghĩa là く"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'け':",
+                options: ["カ", "コ", "キ", "ケ"],
+                correct: 3,
+                explanation: "ケ nghĩa là け"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'こ':",
+                options: ["キ", "ク", "ケ", "コ"],
+                correct: 3,
+                explanation: "コ nghĩa là こ"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'さ':",
+                options: ["サ", "シ", "ス", "セ"],
+                correct: 0,
+                explanation: "サ nghĩa là さ"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'し':",
+                options: ["ス", "シ", "ソ", "セ"],
+                correct: 1,
+                explanation: "シ nghĩa là し"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'す':",
+                options: ["シ", "セ", "ス", "サ"],
+                correct: 2,
+                explanation: "ス nghĩa là す"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'せ':",
+                options: ["サ", "ソ", "シ", "セ"],
+                correct: 3,
+                explanation: "セ nghĩa là せ"
+            },
+            {
+                question: "Chọn nghĩa đúng của từ 'そ':",
+                options: ["シ", "ス", "セ", "ソ"],
+                correct: 3,
+                explanation: "ソ nghĩa là そ"
+            }
+        ],
+        matching: [{
+            left: ["ア", "イ", "ウ", "エ", "オ", "カ", "キ", "ク", "ケ", "コ", "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "ナ", "ニ", "ヌ", "ネ", "ノ"],
+            right: ["こ", "う", "の", "に", "せ", "あ", "け", "お", "か", "ね", "た", "い", "て", "ち", "く", "つ", "と", "し", "き", "す", "そ", "え", "な", "ぬ", "さ"],
+            correctPairs: [[0, 5], [1, 11], [2, 1], [3, 21], [4, 7], [5, 8], [6, 18], [7, 14], [8, 6], [9, 0], [10, 24], [11, 17], [12, 19], [13, 4], [14, 20], [15, 10], [16, 13], [17, 15], [18, 12], [19, 16], [20, 22], [21, 3], [22, 23], [23, 9], [24, 2]],
+            explanation: "ア = あ, イ = い, ウ = う, エ = え, オ = お, カ = か, キ = き, ク = く, ケ = け, コ = こ, サ = さ, シ = し, ス = す, セ = せ, ソ = そ, タ = た, チ = ち, ツ = つ, テ = て, ト = と, ナ = な, ニ = に, ヌ = ぬ, ネ = ね, ノ = の"
+        }]
+        ,
+        typing: [
+            {
+                question: "Tôi thích hoa",
+                placeholder: "Nhập câu có nghĩa Tôi thích hoa",
+                correct: "わたしははながすきです",
+                hint: "わたし + は + はな + が + すき + です",
+                explanation: "わたしははながすきです là Tôi thích hoa"
+            },
+            {
+                question: "Tôi không thích truyện tranh",
+                placeholder: "Nhập câu có nghĩa Tôi không thích truyện tranh",
+                correct: "わたしはまんががすきではありません",
+                hint: "わたし + は + まんが + が + すき + では + ありません",
+                explanation: "わたしはまんががすきではありません là Tôi không thích truyện tranh"
+            },
+            {
+                question: "Giáo viên có thích sách không",
+                placeholder: "Nhập câu có nghĩa Giáo viên có thích sách không",
+                correct: "せんせいはほんがすきですか",
+                hint: "せんせい + は + ほん + が + すき + です + か",
+                explanation: "せんせいはほんがすきですか là Giáo viên có thích sách không"
+            }
+        ],
+        wordConnect: [
+            {
+                word: "さ",
+                options: ["サ", "シ", "ス", "セ"],
+                correct: 0,
+                explanation: "さ là サ"
+            },
+            {
+                word: "し",
+                options: ["サ", "シ", "ス", "ソ"],
+                correct: 1,
+                explanation: "し là シ"
+            },
+            {
+                word: "す",
+                options: ["サ", "セ", "ス", "ソ"],
+                correct: 2,
+                explanation: "す là ス"
+            },
+            {
+                word: "せ",
+                options: ["サ", "シ", "ス", "セ"],
+                correct: 3,
+                explanation: "せ là セ"
+            },
+            {
+                word: "そ",
+                options: ["サ", "シ", "セ", "ソ"],
+                correct: 3,
+                explanation: "そ là ソ"
+            },
+            {
+                word: "た",
+                options: ["タ", "チ", "ツ", "テ"],
+                correct: 0,
+                explanation: "た là タ"
+            },
+            {
+                word: "ち",
+                options: ["タ", "チ", "ツ", "ト"],
+                correct: 1,
+                explanation: "ち là チ"
+            },
+            {
+                word: "つ",
+                options: ["タ", "テ", "ツ", "ト"],
+                correct: 2,
+                explanation: "つ là ツ"
+            },
+            {
+                word: "て",
+                options: ["タ", "チ", "ツ", "テ"],
+                correct: 3,
+                explanation: "て là テ"
+            },
+            {
+                word: "と",
+                options: ["タ", "チ", "テ", "ト"],
+                correct: 3,
+                explanation: "と là ト"
+            },
+            {
+                word: "な",
+                options: ["ナ", "ニ", "ヌ", "ネ"],
+                correct: 0,
+                explanation: "な là ナ"
+            },
+            {
+                word: "に",
+                options: ["ナ", "ニ", "ヌ", "ノ"],
+                correct: 1,
+                explanation: "に là ニ"
+            },
+            {
+                word: "ぬ",
+                options: ["ナ", "ネ", "ヌ", "ノ"],
+                correct: 2,
+                explanation: "ぬ là ヌ"
+            },
+            {
+                word: "ね",
+                options: ["ナ", "ニ", "ヌ", "ネ"],
+                correct: 3,
+                explanation: "ね là ネ"
+            },
+            {
+                word: "の",
+                options: ["ナ", "ニ", "ネ", "ノ"],
+                correct: 3,
+                explanation: "の là ノ"
+            }
+        ],
+        fillBlank: [
+            {
+                sentence: "こ___はせんぷう___ではありありません",
+                blanks: ["れ", "き"],
+                options: [["れ", "の", "ん", "と"], ["き", "し", "ち", "り"]],
+                explanation: "これはせんぷうきではありありません = Cái này không phải là máy quạt"
+            },
+            {
+                sentence: "それは___うしで___ありません",
+                blanks: ["ぼ", "は"],
+                options: [["ぼ", "ほ", "も", "の"], ["は", "が", "を", "に"]],
+                explanation: "それはぼうしではありません = Cái đó không phải là cái nón"
+            },
+            {
+                sentence: "い___なん___ですか",
+                blanks: ["ま", "じ"],
+                options: [["ま", "み", "む", "め"], ["じ", "ぎ", "び", "ぴ"]],
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            }
+        ],
+        sentenceOrder: [
+            {
+                words: ["ん", "で", "い", "す", "じ", "ま", "か", "な"],
+                correct: [2, 5, 7, 0, 4, 1, 3, 6],
+                correctSentence: "いまなんじですか",
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            },
+            {
+                words: ["す", "ご", "く", "で", "じ", "ん", "ふ", "ま", "い"],
+                correct: [8, 7, 2, 4, 1, 6, 5, 3, 0],
+                correctSentence: "いまくじごふんです",
+                explanation: "いまくじごふんです = Bây giờ là 9 giờ 5 phút"
+            },
+            {
+                words: ["ん", "す", "ご", "ふ", "じ", "い", "じゅ", "う", "ま", "よ", "で"],
+                correct: [5, 8, 9, 4, 6, 7, 2, 3, 0, 10,1],
+                correctSentence: "いまよじじゅうごふんです",
+                explanation: "いまよじじゅうごふんです = Bây giờ là 4 giờ 15 phút"
+            },
+            {
+                words: ["ぷ", "ん", "じ", "は", "ま", "い", "じゅ", "っ", "す", "で", "ち", "に"],
+                correct: [5, 4, 3, 10, 2, 11, 6, 7, 0, 1, 9, 8],
+                correctSentence: "いまはちじにじゅっぷんです",
+                explanation: "いまはちじにじゅっぷんです = Bây giờ là 8 giờ 10 phút"
+            }
+        ]
+    },
     test8: {
         name: 'Bài test 8 - Ngày 14-12-2025',
         multipleChoice: [
