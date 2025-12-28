@@ -20,15 +20,15 @@ export const ALL_TESTS = {
             { question: "Chọn cách viết Katakana đúng của 'たち':", options: ["アサ", "ユメ", "イエ", "タチ"], correct: 3, explanation: "たち viết bằng Katakana là タチ" },
             { question: "Chọn cách viết Katakana đúng của 'つくえ':", options: ["ツクエ", "サヨナラ", "ヒル", "モモ"], correct: 0, explanation: "つくえ viết bằng Katakana là ツクエ" },
             { question: "Chọn cách viết Katakana đúng của 'ぬの':", options: ["クスリヤ", "ヌノ", "ハレ", "ヤスミ"], correct: 1, explanation: "ぬの viết bằng Katakana là ヌノ" },
-            { question: "Chọn cách viết Katakana đúng của 'ふへ':", options: ["ラン", "サクラ", "フヘ", "タチ"], correct: 2, explanation: "ふへ viết bằng Katakana là フヘ" }
+            { question: "Chọn cách viết Katakana đúng của 'へや':", options: ["ラン", "サクラ", "ヘヤ", "タチ"], correct: 2, explanation: "へや viết bằng Katakana là ヘヤ" }
         ],
         matching: [{
             "left": [
-                "わたしはいぬがすきです",
-                "せんせいはさんじゅうごさいです",
-                "きょうはなんようびですか",
-                "これははなですか",
-                "いまなんじですか"
+                "わたしは いぬが すき です",
+                "せんせいは さんじゅうごさい です",
+                "きょうは なんようびですか",
+                "これは はな ですか",
+                "いま なんじ ですか"
             ],
             "right": [
                 "Bây giờ là mấy giờ",
@@ -57,11 +57,11 @@ export const ALL_TESTS = {
                 explanation: "わたしはじゅうにさいです là Tôi 12 tuổi"
             },
             {
-                question: "Giáo viên 35 tuổi có phải không",
-                placeholder: "Nhập câu có nghĩa Giáo viên 35 tuổi có phải không",
+                question: "Giáo viên không phải 35 tuổi",
+                placeholder: "Nhập câu có nghĩa Giáo viên không phải 35 tuổi",
                 correct: "せんせさんじゅうごさいではありません",
                 hint: "せんせい + は + さんじゅうごさい + ではありません",
-                explanation: "せんせさんじゅうごさいではありません là Giáo viên 35 tuổi có phải không"
+                explanation: "せんせさんじゅうごさいではありません là Giáo viên không phải 35 tuổi"
             }
         ],
         wordConnect: [
@@ -102,10 +102,10 @@ export const ALL_TESTS = {
                 explanation: "アシタ viết bằng hiragana là あした"
             },
             {
-                word: "シス",
+                word: "スシ",
                 options: ["しす", "じす", "ちす", "きす"],
                 correct: 0,
-                explanation: "シス viết bằng hiragana là しす"
+                explanation: "スシ viết bằng hiragana là シス"
             },
             {
                 word: "イス",
@@ -133,7 +133,7 @@ export const ALL_TESTS = {
             },
             {
                 word: "ニワ",
-                options: ["にゎ", "にわ", "みわ", "りわ"],
+                options: ["かわ", "にわ", "みわ", "りわ"],
                 correct: 1,
                 explanation: "ニワ viết bằng hiragana là にわ"
             },
