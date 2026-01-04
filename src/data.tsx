@@ -1,4 +1,196 @@
 export const ALL_TESTS = {
+    test11: {
+        name: 'Bài test 11 - Ngày 04-01-2026',
+        multipleChoice: [
+            { question: "Chọn nghĩa đúng của từ 'bia':", options: ["コーラ", "ビール", "パン", "ケーキ"], correct: 1, explanation: "ビール nghĩa là bia" },
+            { question: "Chọn nghĩa đúng của từ 'coca-cola':", options: ["コーラ", "ビール", "サラダ", "コーヒー"], correct: 0, explanation: "コーラ nghĩa là coca-cola" },
+            { question: "Chọn nghĩa đúng của từ 'bánh mì':", options: ["ケーキ", "ヨーグルト", "パン", "アイスクリーム"], correct: 2, explanation: "パン nghĩa là bánh mì" },
+            { question: "Chọn nghĩa đúng của từ 'món salad':", options: ["コーヒー", "サラダ", "ビール", "コーラ"], correct: 1, explanation: "サラダ nghĩa là món salad" },
+            { question: "Chọn nghĩa đúng của từ 'bánh kem':", options: ["パン", "アイスクリーム", "ヨーグルト", "ケーキ"], correct: 3, explanation: "ケーキ nghĩa là bánh kem" },
+            { question: "Chọn nghĩa đúng của từ 'cà phê':", options: ["コーヒー", "コーラ", "ビール", "サラダ"], correct: 0, explanation: "コーヒー nghĩa là cà phê" },
+            { question: "Chọn nghĩa đúng của từ 'sữa chua':", options: ["アイスクリーム", "パン", "ケーキ", "ヨーグルト"], correct: 3, explanation: "ヨーグルト nghĩa là sữa chua" },
+            { question: "Chọn nghĩa đúng của từ 'kem':", options: ["サラダ", "コーヒー", "アイスクリーム", "ビール"], correct: 2, explanation: "アイスクリーム nghĩa là kem" }
+        ],
+        matching: [{
+            left: [
+                "Giáo viên thích sách",
+                "Tôi 12 tuổi",
+                "Hôm nay là thứ mấy",
+                "Đây là cái gì?",
+                "Bây giờ là mấy giờ",
+                "Lan là người nước nào",
+                "Minh thích gì vậy"
+            ],
+            right: [
+                "いまなんじですか",
+                "せんせいはほんがすきです",
+                "Lanさんはなにじんですか",
+                "きょうはなんようびですか",
+                "わたしはじゅうにさいです",
+                "これはなんですか",
+                "Minhさんはなにがすきですか"
+            ],
+            correctPairs: [[0, 1], [1, 4], [2, 3], [3, 5], [4, 0], [5, 2], [6, 6]],
+            explanation: "Giáo viên thích sách = せんせいはほんがすきです, Tôi 12 tuổi = わたしはじゅうにさいです, Hôm nay là thứ mấy = きょうはなんようびですか, Đây là cái gì? = これはなんですか, Bây giờ là mấy giờ = いまなんじですか, Lan là người nước nào = Lanさんはなにじんですか, Minh thích gì vậy = Minhさんはなにがすきですか"
+        }]
+        ,
+        typing: [
+            {
+                question: "Giáo viên là người Nhật",
+                placeholder: "Nhập từ vựng có nghĩa Giáo viên là người Nhật",
+                correct: "せんせいはにほんじんです",
+                hint: "せんせい + は + にほんじん + です",
+                explanation: "せんせいはにほんじんです là Giáo viên là người Nhật"
+            },
+            {
+                question: "Bạn Lan thích sách",
+                placeholder: "Nhập từ vựng có nghĩa Bạn Lan thích sách",
+                correct: "Lanさんはほんがすきです",
+                hint: "Lanさん + は + ほん + が + すき + です",
+                explanation: "Lanさんはほんがすきです là Bạn Lan thích sách"
+            },
+            {
+                question: "Bạn Minh bao nhiêu tuổi vậy?",
+                placeholder: "Nhập từ vựng có nghĩa Bạn Minh bao nhiêu tuổi vậy?",
+                correct: "Minhさんはなんさいですか",
+                hint: "Minhさん + は + なんさい + ですか",
+                explanation: "Minhさんはなんさいですか là Bạn Minh bao nhiêu tuổi vậy?"
+            },
+            {
+                question: "Cái này không phải hoa",
+                placeholder: "Nhập từ vựng có nghĩa Cái này không phải hoa",
+                correct: "これははなではありません",
+                hint: "これ + は + はな + では + ありません",
+                explanation: "これははなではありません là Cái này không phải hoa"
+            }
+        ],
+        wordConnect: [
+            {
+                word: "パパイヤ",
+                options: ["đu đủ", "chuối", "xoài", "dừa"],
+                correct: 0,
+                explanation: "パパイヤ là đu đủ"
+            },
+            {
+                word: "バナナ",
+                options: ["sầu riêng", "chuối", "dứa", "đu đủ"],
+                correct: 1,
+                explanation: "バナナ là chuối"
+            },
+            {
+                word: "ココナッツ",
+                options: ["măng cụt", "xoài", "dừa", "chuối"],
+                correct: 2,
+                explanation: "ココナッツ là dừa"
+            },
+            {
+                word: "パイナップル",
+                options: ["chuối", "sầu riêng", "đu đủ", "dứa"],
+                correct: 3,
+                explanation: "パイナップル là dứa"
+            },
+            {
+                word: "マンゴー",
+                options: ["xoài", "dừa", "măng cụt", "dứa"],
+                correct: 0,
+                explanation: "マンゴー là xoài"
+            },
+            {
+                word: "マンゴスチン",
+                options: ["dứa", "măng cụt", "sầu riêng", "đu đủ"],
+                correct: 1,
+                explanation: "マンゴスチン là măng cụt"
+            },
+            {
+                word: "ドリアン",
+                options: ["chuối", "xoài", "sầu riêng", "dừa"],
+                correct: 2,
+                explanation: "ドリアン là sầu riêng"
+            }
+        ],
+        fillBlank: [
+            {
+                sentence: "ケー___",
+                blanks: ["キ"],
+                options: [["キ", "ギ", "ク", "グ"]],
+                explanation: "ケーキ = bánh kem"
+            },
+            {
+                sentence: "___ーグ___ト",
+                blanks: ["ヨ", "ル"],
+                options: [["ヨ", "ユ", "ヤ", "エ"], ["ル", "リ", "ロ", "レ"]],
+                explanation: "ヨーグルト = sữa chua"
+            },
+            {
+                sentence: "ア___スク___ーム",
+                blanks: ["イ", "リ"],
+                options: [["イ", "エ", "ウ", "オ"], ["リ", "ル", "レ", "ロ"]],
+                explanation: "アイスクリーム = kem"
+            },
+            {
+                sentence: "___パ___ヤ",
+                blanks: ["パ", "イ"],
+                options: [["パ", "バ", "ハ", "マ"], ["イ", "エ", "ウ", "ア"]],
+                explanation: "パパイヤ = đu đủ"
+            },
+            {
+                sentence: "コ___ナッ___",
+                blanks: ["コ", "ツ"],
+                options: [["コ", "ゴ", "ク", "ケ"], ["ツ", "ト", "テ", "チ"]],
+                explanation: "ココナッツ = dừa"
+            },
+            {
+                sentence: "パ___ナッ___ル",
+                blanks: ["イ", "プ"],
+                options: [["イ", "エ", "ウ", "ア"], ["プ", "ブ", "フ", "ポ"]],
+                explanation: "パイナップル = dứa"
+            },
+            {
+                sentence: "マン___ス___ン",
+                blanks: ["ゴ", "チ"],
+                options: [["ゴ", "コ", "ギ", "グ"], ["チ", "ツ", "テ", "ト"]],
+                explanation: "マンゴスチン = măng cụt"
+            },
+            {
+                sentence: "___リ___ン",
+                blanks: ["ド", "ア"],
+                options: [["ド", "デ", "ダ", "ト"], ["ア", "イ", "エ", "オ"]],
+                explanation: "ドリアン = sầu riêng"
+            }
+        ],
+        sentenceOrder: [
+            {
+                words: ["は", "す", "わ", "き", "が", "い", "ぬ", "し", "た", "で"],
+                correct: [2, 8, 0, 5, 7, 4, 6, 3, 9, 1],
+                correctSentence: "わたしはいぬがすきです",
+                explanation: "わたしはいぬがすきです = Tôi thích chó"
+            },
+            {
+                words: ["た", "い", "で", "う", "さ", "に", "し", "す", "は", "ゅ", "じ", "わ"],
+                correct: [11, 0, 6, 8, 10, 9, 3, 5, 4, 1, 2, 7],
+                correctSentence: "わたしはじゅうにさいです",
+                explanation: "わたしはじゅうにさいです = Tôi 12 tuổi"
+            },
+            {
+                words: ["ょ", "び", "か", "よ", "き", "で", "ん", "は", "な", "す", "う"],
+                correct: [4, 0, 10, 7, 8, 6, 3, 1, 5, 9, 2],
+                correctSentence: "きょうはなんようびですか",
+                explanation: "きょうはなんようびですか = Hôm nay là thứ mấy"
+            },
+            {
+                words: ["で", "れ", "は", "ん", "す", "こ", "ほ", "か"],
+                correct: [5, 1, 2, 6, 3, 0, 4, 7],
+                correctSentence: "これはほんですか",
+                explanation: "これはほんですか = Đây là sách đúng không?"
+            },
+            {
+                words: ["で", "ん", "か", "い", "す", "じ", "ま", "な"],
+                correct: [3, 6, 7, 1, 5, 0, 4, 2],
+                correctSentence: "いまなんじですか",
+                explanation: "いまなんじですか = Bây giờ là mấy giờ"
+            }
+        ]
+    },
     test10: {
         name: 'Bài test 10 - Ngày 28-12-2025',
         multipleChoice: [

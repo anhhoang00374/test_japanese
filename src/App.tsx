@@ -10,8 +10,8 @@ export default function JapaneseTestApp() {
         { name: 'Ghép từ', data: DATA.matching, type: 'matching' },
         { name: 'Nhập từ', data: DATA.typing, type: 'typing' },
         { name: 'Chọn cách đọc đúng', data: DATA.wordConnect, type: 'connect' },
-        // { name: 'Điền từ', data: DATA.fillBlank, type: 'fill' },
-        // { name: 'Sắp xếp câu', data: DATA.sentenceOrder, type: 'order' },
+        { name: 'Điền từ', data: DATA.fillBlank, type: 'fill' },
+        { name: 'Sắp xếp câu', data: DATA.sentenceOrder, type: 'order' },
 
     ];
 
