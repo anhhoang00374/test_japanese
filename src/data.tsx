@@ -160,12 +160,6 @@ export const ALL_TESTS = {
         ],
         sentenceOrder: [
             {
-                words: ["は", "す", "わ", "き", "が", "い", "ぬ", "し", "た", "で"],
-                correct: [2, 8, 0, 5, 7, 4, 6, 3, 9, 1],
-                correctSentence: "わたしはいぬがすきです",
-                explanation: "わたしはいぬがすきです = Tôi thích chó"
-            },
-            {
                 words: ["た", "い", "で", "う", "さ", "に", "し", "す", "は", "ゅ", "じ", "わ"],
                 correct: [11, 0, 6, 8, 10, 9, 3, 5, 4, 1, 2, 7],
                 correctSentence: "わたしはじゅうにさいです",
